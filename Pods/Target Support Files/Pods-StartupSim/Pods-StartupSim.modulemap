@@ -1,0 +1,6 @@
+framework module Pods_StartupSim {
+  umbrella header "Pods-StartupSim-umbrella.h"
+
+  export *
+  module * { export * }
+}
