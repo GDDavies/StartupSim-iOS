@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HireEmployeeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     //var ceo: NSManagedObject?
     @IBOutlet weak var tableView: UITableView!
@@ -19,6 +19,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         //save(name: "Bastian")
+        
+        tableView.register(UINib(nibName: "EmployeeTableViewCell", bundle: nil), forCellReuseIdentifier: "EmployeeCellId")
+        
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         print(appDelegate?.persistentContainer.persistentStoreCoordinator.persistentStores.first?.url)
         managedContext = appDelegate?.persistentContainer.viewContext
@@ -56,7 +59,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         //print(ceo.value(forKey: "name"))
     }
-
+    
+    @IBAction func donePressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     // MARK: - TableView Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -64,7 +71,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PersonCellId", for: indexPath) as! PersonTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EmployeeCellId", for: indexPath) as! EmployeeTableViewCell
         cell.setup(person: personArray[indexPath.row])
         return cell
     }
@@ -78,6 +85,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             managedContext?.delete(personArray[i])
         }
         savePerson(person: personArray[indexPath.row])
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

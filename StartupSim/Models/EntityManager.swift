@@ -12,15 +12,15 @@ import Fakery
 import GameKit
 
 enum Role: String {
-    case softwareDeveloper = "SOFTWARE_DEVELOPER"
-    case designer = "DESIGNER"
-    case projectManager = "PROJECT_MANAGER"
+    case softwareDeveloper = "Software Developer"
+    case designer = "Designer"
+    case projectManager = "Project Manager"
     case CEO = "CEO"
     case CTO = "CTO"
-    //case secretary = "SECRETARY"
-    case productManager = "PRODUCT_MANAGER"
-    case accountManager = "ACCOUNT_MANAGER"
-    case marketingExecutive = "MARKETING_EXECUTIVE"
+    //case secretary = "Secretary"
+    case productManager = "Product Manager"
+    case accountManager = "Account Manager"
+    case marketingExecutive = "Marketing Executive"
     case COO = "COO"
 }
 

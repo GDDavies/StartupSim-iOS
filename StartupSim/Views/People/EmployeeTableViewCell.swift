@@ -1,5 +1,5 @@
 //
-//  PersonTableViewCell.swift
+//  EmployeeTableViewCell.swift
 //  StartupSim
 //
 //  Created by George Davies on 28/12/2017.
@@ -8,9 +8,10 @@
 
 import UIKit
 
-class PersonTableViewCell: UITableViewCell {
-
+class EmployeeTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var roleLbl: UILabel!
     @IBOutlet weak var ageLbl: UILabel!
     @IBOutlet weak var salaryLbl: UILabel!
     
@@ -20,11 +21,12 @@ class PersonTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.selectionStyle = .none
     }
-
+    
     func setup(person: Person) {
         nameLbl.text = person.name
+        roleLbl.text = person.role
         ageLbl.text = person.age.description
         salaryLbl.text = person.salary.description
         
@@ -34,7 +36,4 @@ class PersonTableViewCell: UITableViewCell {
         businessLbl.text = skills?.business.description
         technicalLbl.text = skills?.technical.description
     }
-    
-    
-
 }
