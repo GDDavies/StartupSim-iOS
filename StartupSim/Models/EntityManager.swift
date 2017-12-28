@@ -29,12 +29,12 @@ struct PeopleMethods {
         // Guard check if CEO already exists
         let ceo = Person(context: context)
         ceo.name = name
+        ceo.role = "CEO"
         ceo.equity = 1.00
         let skills = createSkills(role: .designer, context: context)
         ceo.addToSkills(skills.object as! Skills)
         do {
             try context.save()
-            
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
@@ -45,10 +45,12 @@ struct PeopleMethods {
         let employee = Person(context: context)
         employee.name = "\(generate.name.firstName()) \(generate.name.lastName())"
         employee.role = role.rawValue
+        employee.negotiation = Int16(generate.number.randomInt(min: 0, max: 20))
         let skills = createSkills(role: role, context: context)
         employee.level = Int16(skills.totalLevel)
         let maxAge = Int(round(skills.totalLevel + 10 * Float(arc4random()) /  Float(UInt32.max)))
         employee.age = Int16(generate.number.randomInt(min: 18, max: maxAge))
+        employee.salary = createSalary(person: employee)
         employee.addToSkills(skills.object as! Skills)
         return employee
     }
@@ -96,6 +98,20 @@ struct PeopleMethods {
         return (skills, Float(skills.creative + skills.technical + skills.business))
     }
     
+    static func createSalary(person: Person) -> Int32 {
+        var upperRange: Double?
+        switch person.role! {
+        case "Designer":
+            upperRange = Double(100000)
+        default:
+            upperRange = Double(50000)
+        }
+        let levelRatio = Double(person.level) / Double(60)
+        let ageRatio = (Double(person.age) * 1.5) / 65
+        let salary = Int32(upperRange! * levelRatio * ageRatio)
+        return salary.round(salary, toNearest: 500)
+    }
+    
     static func randomLevel(min: Int = 0, max: Int = 20) -> Int16 {
         let random = GKRandomSource()
         let distribution = GKGaussianDistribution(randomSource: random, lowestValue: min, highestValue: max)
@@ -109,11 +125,14 @@ struct StartupMethods {
         startup.name = name
         do {
             try context.save()
-            
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
+}
+
+struct Inflation {
+    static var rate = 1.00
 }
 
 extension NSManagedObjectContext {

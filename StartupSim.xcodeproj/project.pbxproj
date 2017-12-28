@@ -31,6 +31,7 @@
 		93F052AB1FF566DB00385736 /* StyleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F052AA1FF566DB00385736 /* StyleConfig.swift */; };
 		93F052AE1FF56E4D00385736 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F052AD1FF56E4D00385736 /* HomeVC.swift */; };
 		93F052B11FF56E6100385736 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93F052B01FF56E6100385736 /* Home.storyboard */; };
+		93F052B31FF578E100385736 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F052B21FF578E100385736 /* Extensions.swift */; };
 		93FACD581FF467EB00013B72 /* People.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93FACD571FF467EB00013B72 /* People.storyboard */; };
 		F53C0368AB573A1B6BB7AA50 /* Pods_StartupSim.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9D40BB774175638F0E33BD /* Pods_StartupSim.framework */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		93F052AA1FF566DB00385736 /* StyleConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleConfig.swift; sourceTree = "<group>"; };
 		93F052AD1FF56E4D00385736 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		93F052B01FF56E6100385736 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		93F052B21FF578E100385736 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		93FACD571FF467EB00013B72 /* People.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = People.storyboard; sourceTree = "<group>"; };
 		A904EE98E9CFEBEDED240E90 /* Pods-StartupSim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StartupSim.release.xcconfig"; path = "Pods/Target Support Files/Pods-StartupSim/Pods-StartupSim.release.xcconfig"; sourceTree = "<group>"; };
 		DC9D40BB774175638F0E33BD /* Pods_StartupSim.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StartupSim.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -243,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				93F052A51FF5642200385736 /* Style */,
+				93F052B21FF578E100385736 /* Extensions.swift */,
 				93DC8E831FF44A260024C149 /* Info.plist */,
 				93DC8E7E1FF44A260024C149 /* Assets.xcassets */,
 				93DC8E741FF44A260024C149 /* AppDelegate.swift */,
@@ -409,6 +412,7 @@
 				935798291FF52E0B0096C317 /* OnboardingViewController.swift in Sources */,
 				93DC8E7D1FF44A260024C149 /* StartupSim.xcdatamodeld in Sources */,
 				93F052AB1FF566DB00385736 /* StyleConfig.swift in Sources */,
+				93F052B31FF578E100385736 /* Extensions.swift in Sources */,
 				9378B30C1FF4998B001ABB33 /* EmployeeTableViewCell.swift in Sources */,
 				935798331FF53A6F0096C317 /* FirstOnboardingCollectionViewCell.swift in Sources */,
 			);

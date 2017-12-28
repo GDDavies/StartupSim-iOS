@@ -28,7 +28,7 @@ class EmployeeTableViewCell: UITableViewCell {
         nameLbl.text = person.name
         roleLbl.text = person.role
         ageLbl.text = person.age.description
-        salaryLbl.text = person.salary.description
+        salaryLbl.text = "£\(Strings.formatSalary(salary: person.salary))"
         
         let skills = person.skills?.allObjects.first as? Skills
         
