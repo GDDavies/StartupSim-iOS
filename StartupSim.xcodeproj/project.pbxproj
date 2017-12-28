@@ -36,6 +36,8 @@
 		93F052BA1FF5868400385736 /* Assets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93F052B91FF5868400385736 /* Assets.storyboard */; };
 		93F052BD1FF586EA00385736 /* Performance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93F052BC1FF586EA00385736 /* Performance.storyboard */; };
 		93F052BF1FF5870400385736 /* PerformanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F052BE1FF5870400385736 /* PerformanceVC.swift */; };
+		93F052C31FF58F8500385736 /* ProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F052C21FF58F8500385736 /* ProductsVC.swift */; };
+		93F052C51FF58F9500385736 /* Products.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93F052C41FF58F9500385736 /* Products.storyboard */; };
 		93FACD581FF467EB00013B72 /* People.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93FACD571FF467EB00013B72 /* People.storyboard */; };
 		F53C0368AB573A1B6BB7AA50 /* Pods_StartupSim.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9D40BB774175638F0E33BD /* Pods_StartupSim.framework */; };
 /* End PBXBuildFile section */
@@ -73,6 +75,8 @@
 		93F052B91FF5868400385736 /* Assets.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Assets.storyboard; sourceTree = "<group>"; };
 		93F052BC1FF586EA00385736 /* Performance.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Performance.storyboard; sourceTree = "<group>"; };
 		93F052BE1FF5870400385736 /* PerformanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceVC.swift; sourceTree = "<group>"; };
+		93F052C21FF58F8500385736 /* ProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsVC.swift; sourceTree = "<group>"; };
+		93F052C41FF58F9500385736 /* Products.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Products.storyboard; sourceTree = "<group>"; };
 		93FACD571FF467EB00013B72 /* People.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = People.storyboard; sourceTree = "<group>"; };
 		A904EE98E9CFEBEDED240E90 /* Pods-StartupSim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StartupSim.release.xcconfig"; path = "Pods/Target Support Files/Pods-StartupSim/Pods-StartupSim.release.xcconfig"; sourceTree = "<group>"; };
 		DC9D40BB774175638F0E33BD /* Pods_StartupSim.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StartupSim.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,6 +257,23 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		93F052C01FF58F6800385736 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93F052C21FF58F8500385736 /* ProductsVC.swift */,
+				93F052C11FF58F7100385736 /* Views */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		93F052C11FF58F7100385736 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				93F052C41FF58F9500385736 /* Products.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		93F868471FF48A8F007C3622 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +299,7 @@
 				9357982A1FF52E0F0096C317 /* Onboarding */,
 				93F052971FF55AFE00385736 /* Main */,
 				93F052AC1FF56E3700385736 /* Home */,
+				93F052C01FF58F6800385736 /* Products */,
 				93F052B51FF5856800385736 /* Assets */,
 				9398F8D71FF49C32006CBB62 /* People */,
 				93F052B41FF5852A00385736 /* Performance */,
@@ -371,6 +393,7 @@
 			files = (
 				93DC8E821FF44A260024C149 /* LaunchScreen.storyboard in Resources */,
 				935798341FF53A6F0096C317 /* FirstOnboardingCollectionViewCell.xib in Resources */,
+				93F052C51FF58F9500385736 /* Products.storyboard in Resources */,
 				93DC8E7F1FF44A260024C149 /* Assets.xcassets in Resources */,
 				93F052B11FF56E6100385736 /* Home.storyboard in Resources */,
 				93F0529E1FF55FF700385736 /* Main.storyboard in Resources */,
@@ -444,6 +467,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93F052C31FF58F8500385736 /* ProductsVC.swift in Sources */,
 				93F052A91FF5668200385736 /* Fonts.swift in Sources */,
 				93DC8E771FF44A260024C149 /* HireEmployeeVC.swift in Sources */,
 				93F052991FF55B2200385736 /* RootVC.swift in Sources */,

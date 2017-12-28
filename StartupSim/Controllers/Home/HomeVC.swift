@@ -7,29 +7,30 @@
 //
 
 import UIKit
+import CoreData
 
 class HomeVC: UIViewController {
 
+    @IBOutlet weak var startupNameLbl: UILabel!
+    @IBOutlet weak var ceoAvatarImgView: UIImageView!
+    
+    @IBOutlet weak var shareholderConfLbl: UILabel!
+    @IBOutlet weak var employeeMoraleLbl: UILabel!
+    @IBOutlet weak var brandRecognitionLbl: UILabel!
+    @IBOutlet weak var publicPerceptionLbl: UILabel!
+    
+    var managedContext: NSManagedObjectContext?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        managedContext = appDelegate.persistentContainer.viewContext
+        
+        startupNameLbl.text = StartupMethods.getStartupName(context: managedContext!)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func continueBtnPressed(_ sender: UIButton) {
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

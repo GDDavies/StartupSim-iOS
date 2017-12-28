@@ -16,7 +16,7 @@ class RootViewController: UITabBarController, UITabBarControllerDelegate, Custom
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    let viewControllerTuple: [(storyboard: String, viewController: String)] = [("Home", "MainView"), ("Assets", "ViewAssets"),("People", "ViewEmployees"), ("Performance", "ViewPerformance")]
+    let viewControllerTuple: [(storyboard: String, viewController: String)] = [("Home", "MainView"), ("Products", "ViewProducts"), ("Assets", "ViewAssets"),("People", "ViewEmployees"), ("Performance", "ViewPerformance")]
     
     override func viewDidLoad() {
         self.delegate = self
@@ -38,7 +38,7 @@ class RootViewController: UITabBarController, UITabBarControllerDelegate, Custom
         let bottomInset: CGFloat?
         
         self.tabBar.isHidden = true
-        self.selectedIndex = 2
+        self.selectedIndex = 0
         if #available(iOS 11.0, *) {
             if (UIWindow(frame: UIScreen.main.bounds).safeAreaInsets.top) > CGFloat(0.0) {
                 bottomInset = UIWindow(frame: UIScreen.main.bounds).safeAreaInsets.bottom

@@ -25,6 +25,7 @@ enum Role: String {
 }
 
 struct PeopleMethods {
+    
     static func createCEO(name: String, context: NSManagedObjectContext) {
         // Guard check if CEO already exists
         let ceo = Person(context: context)
@@ -127,6 +128,20 @@ struct StartupMethods {
             try context.save()
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    static func getStartupName(context: NSManagedObjectContext) -> String? {
+        let request: NSFetchRequest<Startup> = Startup.fetchRequest()
+        do {
+            let result = try context.fetch(request) as [NSManagedObject]
+            
+            let startupName = result[6].value(forKey: "name") as? String
+            
+            return startupName
+        } catch {
+            print(error)
+            return nil
         }
     }
 }
