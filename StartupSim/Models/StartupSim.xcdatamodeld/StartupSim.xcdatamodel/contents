@@ -9,6 +9,7 @@
         <attribute name="role" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="salary" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="skills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Skills" inverseName="person" inverseEntity="Skills" syncable="YES"/>
+        <relationship name="startup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Startup" inverseName="people" inverseEntity="Startup" syncable="YES"/>
     </entity>
     <entity name="Skills" representedClassName="Skills" syncable="YES" codeGenerationType="class">
         <attribute name="business" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -16,8 +17,13 @@
         <attribute name="technical" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="skills" inverseEntity="Person" syncable="YES"/>
     </entity>
+    <entity name="Startup" representedClassName="Startup" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="people" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="startup" inverseEntity="Person" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Person" positionX="-27" positionY="18" width="128" height="165"/>
+        <element name="Person" positionX="-27" positionY="18" width="128" height="180"/>
         <element name="Skills" positionX="-27" positionY="9" width="128" height="105"/>
+        <element name="Startup" positionX="-18" positionY="81" width="128" height="75"/>
     </elements>
 </model>
