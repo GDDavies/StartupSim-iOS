@@ -10,16 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--HomeVC-->
-        <scene sceneID="qc2-xd-hHj">
+        <!--AssetsVC-->
+        <scene sceneID="VDs-58-SHx">
             <objects>
-                <viewController storyboardIdentifier="MainView" id="O7F-PJ-Nj5" customClass="HomeVC" customModule="StartupSim" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bI9-bV-n6L">
+                <viewController storyboardIdentifier="ViewAssets" id="N7r-Gz-fHx" customClass="AssetsVC" customModule="StartupSim" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fWv-25-jbd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2c-Oa-Mpw">
-                                <rect key="frame" x="164.5" y="333" width="46" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dga-kw-Sct">
+                                <rect key="frame" x="161.5" y="333" width="52" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -27,16 +27,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="A2c-Oa-Mpw" firstAttribute="centerY" secondItem="of5-9D-VlT" secondAttribute="centerY" id="JcH-Oe-Fuh"/>
-                            <constraint firstItem="A2c-Oa-Mpw" firstAttribute="centerX" secondItem="of5-9D-VlT" secondAttribute="centerX" id="sFM-Kb-w7w"/>
+                            <constraint firstItem="Dga-kw-Sct" firstAttribute="centerY" secondItem="tmR-JP-gP5" secondAttribute="centerY" id="0ap-1A-CHZ"/>
+                            <constraint firstItem="Dga-kw-Sct" firstAttribute="centerX" secondItem="tmR-JP-gP5" secondAttribute="centerX" id="opL-0g-pa5"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="of5-9D-VlT"/>
+                        <viewLayoutGuide key="safeArea" id="tmR-JP-gP5"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I9A-5U-tTZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zju-gT-uc7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="143" y="156"/>
+            <point key="canvasLocation" x="186" y="157"/>
         </scene>
     </scenes>
 </document>

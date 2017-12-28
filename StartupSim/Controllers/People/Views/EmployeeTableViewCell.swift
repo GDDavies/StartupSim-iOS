@@ -27,8 +27,8 @@ class EmployeeTableViewCell: UITableViewCell {
     func setup(person: Person) {
         nameLbl.text = person.name
         roleLbl.text = person.role
-        ageLbl.text = person.age.description
-        salaryLbl.text = "£\(Strings.formatSalary(salary: person.salary))"
+        ageLbl.text = "Age: \(person.age.description)"
+        salaryLbl.text = "Salary: £\(Strings.formatSalary(salary: person.salary))"
         
         let skills = person.skills?.allObjects.first as? Skills
         
