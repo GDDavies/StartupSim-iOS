@@ -31,7 +31,7 @@ class HireEmployeeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     private func createShortlist() {
         
         for _ in 0...2 {
-            let person = CreatePeople.createEmployee(role: .designer, context: managedContext!)
+            let person = PeopleMethods.createEmployee(role: .designer, context: managedContext!)
             personArray.append(person)
         }
     }

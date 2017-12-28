@@ -10,16 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View EmployeesVC-->
+        <!--Item-->
         <scene sceneID="B7f-td-2br">
             <objects>
-                <viewController id="i5n-zj-aKD" customClass="ViewEmployeesVC" customModule="StartupSim" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewEmployees" id="i5n-zj-aKD" customClass="ViewEmployeesVC" customModule="StartupSim" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4jK-cL-AYD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iSq-95-tbD">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="i5n-zj-aKD" id="aFj-q0-v3Q"/>
@@ -36,6 +36,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eai-hI-x8L"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="xeF-Om-pJ7"/>
                     <navigationItem key="navigationItem" id="moH-bz-yOV">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="XzW-sT-B1i">
                             <connections>
@@ -43,6 +44,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="iSq-95-tbD" id="PJZ-tD-WEr"/>
                         <segue destination="Cq1-JK-AGC" kind="presentation" identifier="ShowPotentialHires" id="DJw-kH-eAf"/>

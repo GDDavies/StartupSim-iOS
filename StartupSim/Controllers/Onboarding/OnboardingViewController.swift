@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import CoreData
 
 class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, MembershipTextFieldDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    var viewControllers = [UIViewController]()
     @IBOutlet weak var pageCtrl: UIPageControl!
+    var managedContext: NSManagedObjectContext?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        print(appDelegate?.persistentContainer.persistentStoreCoordinator.persistentStores.first?.url)
+        managedContext = appDelegate?.persistentContainer.viewContext
 
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -27,8 +31,21 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBAction func nextCellPressed(_ sender: UIButton) {
         for cell in collectionView.visibleCells {
             let indexPath = collectionView.indexPath(for: cell)
-            collectionView.scrollToItem(at: IndexPath(item: indexPath!.item + 1, section: 0), at: UICollectionViewScrollPosition.right, animated: true)
-            pageCtrl.currentPage = indexPath!.item + 1
+            let cell = collectionView.cellForItem(at: indexPath!) as! FirstOnboardingCollectionViewCell
+            if indexPath!.item == 0 {
+                PeopleMethods.createCEO(name: cell.nameTxtField.text, context: managedContext!)
+                collectionView.scrollToItem(at: IndexPath(item: indexPath!.item + 1, section: 0), at: UICollectionViewScrollPosition.right, animated: true)
+                pageCtrl.currentPage = indexPath!.item + 1
+            } else {
+                StartupMethods.createStartup(name: cell.nameTxtField.text, context: managedContext!)
+                print("Dismiss self")
+            }
+        }
+        do {
+            try managedContext?.save()
+            
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
         }
     }
     
@@ -37,6 +54,12 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
             let indexPath = collectionView.indexPath(for: cell)
             collectionView.scrollToItem(at: IndexPath(item: indexPath!.item - 1, section: 0), at: UICollectionViewScrollPosition.left, animated: true)
             pageCtrl.currentPage = indexPath!.item - 1
+        }
+        do {
+            try managedContext?.save()
+            
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
         }
     }
     
@@ -54,6 +77,7 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
         } else {
             cell.headerLbl.text = "Please enter your Startup's name."
             cell.nameTxtField.placeholder = "Your startup name"
+            StartupMethods.createStartup(name: cell.nameTxtField.text, context: managedContext!)
         }
         return cell
     }

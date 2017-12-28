@@ -24,13 +24,20 @@ enum Role: String {
     case COO = "COO"
 }
 
-struct CreatePeople {
+struct PeopleMethods {
     static func createCEO(name: String, context: NSManagedObjectContext) {
         // Guard check if CEO already exists
         let ceo = Person(context: context)
         ceo.name = name
+        ceo.equity = 1.00
         let skills = createSkills(role: .designer, context: context)
         ceo.addToSkills(skills.object as! Skills)
+        do {
+            try context.save()
+            
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
     
     static func createEmployee(role: Role, context: NSManagedObjectContext) -> Person {
@@ -93,6 +100,19 @@ struct CreatePeople {
         let random = GKRandomSource()
         let distribution = GKGaussianDistribution(randomSource: random, lowestValue: min, highestValue: max)
         return Int16(distribution.nextInt())
+    }
+}
+
+struct StartupMethods {
+    static func createStartup(name: String, context: NSManagedObjectContext) {
+        let startup = Startup(context: context)
+        startup.name = name
+        do {
+            try context.save()
+            
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
 }
 
