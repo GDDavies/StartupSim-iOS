@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FirstOnboardingCellId" id="gTV-IL-0wX" customClass="FirstOnboardingCollectionViewCell" customModule="StartupSim" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="542"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="542"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fEn-Gh-UTz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="542"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPt-fg-Bwe">
+                                <rect key="frame" x="139" y="261" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hth-QF-g9n" customClass="MembershipTextField" customModule="StartupSim" customModuleProvider="target">
+                                <rect key="frame" x="40" y="304" width="240" height="37"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="KmQ-wS-efn"/>
+                                    <constraint firstAttribute="width" constant="240" id="O0r-eR-P0Y"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Hth-QF-g9n" firstAttribute="top" secondItem="oPt-fg-Bwe" secondAttribute="bottom" constant="22" id="IEf-zh-Tdz"/>
+                            <constraint firstItem="oPt-fg-Bwe" firstAttribute="centerY" secondItem="fEn-Gh-UTz" secondAttribute="centerY" id="YXl-zD-pST"/>
+                            <constraint firstItem="oPt-fg-Bwe" firstAttribute="centerX" secondItem="fEn-Gh-UTz" secondAttribute="centerX" id="bc2-df-BOA"/>
+                            <constraint firstItem="Hth-QF-g9n" firstAttribute="centerX" secondItem="fEn-Gh-UTz" secondAttribute="centerX" id="m0L-kh-S2E"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="fEn-Gh-UTz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="BEt-ew-HDD"/>
+                <constraint firstAttribute="bottom" secondItem="fEn-Gh-UTz" secondAttribute="bottom" id="UNN-HV-zzb"/>
+                <constraint firstAttribute="trailing" secondItem="fEn-Gh-UTz" secondAttribute="trailing" id="ddO-T1-SoQ"/>
+                <constraint firstItem="fEn-Gh-UTz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="piG-Dh-Blm"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="320" height="542"/>
+            <connections>
+                <outlet property="headerLbl" destination="oPt-fg-Bwe" id="Inb-gL-pWB"/>
+                <outlet property="nameTxtField" destination="Hth-QF-g9n" id="0wu-iD-DUB"/>
+            </connections>
+            <point key="canvasLocation" x="169" y="300"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		935798271FF529AC0096C317 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 935798261FF529AC0096C317 /* Main.storyboard */; };
+		935798291FF52E0B0096C317 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935798281FF52E0B0096C317 /* OnboardingViewController.swift */; };
+		935798331FF53A6F0096C317 /* FirstOnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935798311FF53A6F0096C317 /* FirstOnboardingCollectionViewCell.swift */; };
+		935798341FF53A6F0096C317 /* FirstOnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 935798321FF53A6F0096C317 /* FirstOnboardingCollectionViewCell.xib */; };
 		9378B30C1FF4998B001ABB33 /* EmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378B30A1FF4998B001ABB33 /* EmployeeTableViewCell.swift */; };
 		9378B30D1FF4998B001ABB33 /* EmployeeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9378B30B1FF4998B001ABB33 /* EmployeeTableViewCell.xib */; };
 		9398F8DA1FF49C70006CBB62 /* ViewEmployeesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9398F8D91FF49C70006CBB62 /* ViewEmployeesVC.swift */; };
@@ -17,12 +21,18 @@
 		93DC8E7D1FF44A260024C149 /* StartupSim.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93DC8E7B1FF44A260024C149 /* StartupSim.xcdatamodeld */; };
 		93DC8E7F1FF44A260024C149 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DC8E7E1FF44A260024C149 /* Assets.xcassets */; };
 		93DC8E821FF44A260024C149 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93DC8E801FF44A260024C149 /* LaunchScreen.storyboard */; };
-		93FACD581FF467EB00013B72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93FACD571FF467EB00013B72 /* Main.storyboard */; };
+		93F052951FF53DE800385736 /* MembershipTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F052931FF53DE800385736 /* MembershipTextField.swift */; };
+		93F052961FF53DE800385736 /* MembershipTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F052941FF53DE800385736 /* MembershipTextField.xib */; };
+		93FACD581FF467EB00013B72 /* Hiring.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93FACD571FF467EB00013B72 /* Hiring.storyboard */; };
 		F53C0368AB573A1B6BB7AA50 /* Pods_StartupSim.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9D40BB774175638F0E33BD /* Pods_StartupSim.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		39ADD2D641691468DBAD1037 /* Pods-StartupSim.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StartupSim.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StartupSim/Pods-StartupSim.debug.xcconfig"; sourceTree = "<group>"; };
+		935798261FF529AC0096C317 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		935798281FF52E0B0096C317 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		935798311FF53A6F0096C317 /* FirstOnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		935798321FF53A6F0096C317 /* FirstOnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstOnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
 		9378B30A1FF4998B001ABB33 /* EmployeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewCell.swift; sourceTree = "<group>"; };
 		9378B30B1FF4998B001ABB33 /* EmployeeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeTableViewCell.xib; sourceTree = "<group>"; };
 		9398F8D91FF49C70006CBB62 /* ViewEmployeesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEmployeesVC.swift; sourceTree = "<group>"; };
@@ -35,7 +45,9 @@
 		93DC8E7E1FF44A260024C149 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93DC8E811FF44A260024C149 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93DC8E831FF44A260024C149 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93FACD571FF467EB00013B72 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		93F052931FF53DE800385736 /* MembershipTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembershipTextField.swift; sourceTree = "<group>"; };
+		93F052941FF53DE800385736 /* MembershipTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MembershipTextField.xib; sourceTree = "<group>"; };
+		93FACD571FF467EB00013B72 /* Hiring.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Hiring.storyboard; sourceTree = "<group>"; };
 		A904EE98E9CFEBEDED240E90 /* Pods-StartupSim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StartupSim.release.xcconfig"; path = "Pods/Target Support Files/Pods-StartupSim/Pods-StartupSim.release.xcconfig"; sourceTree = "<group>"; };
 		DC9D40BB774175638F0E33BD /* Pods_StartupSim.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StartupSim.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -60,6 +72,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9357982A1FF52E0F0096C317 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				935798281FF52E0B0096C317 /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		9357982D1FF532960096C317 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				935798261FF529AC0096C317 /* Main.storyboard */,
+				935798311FF53A6F0096C317 /* FirstOnboardingCollectionViewCell.swift */,
+				935798321FF53A6F0096C317 /* FirstOnboardingCollectionViewCell.xib */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		9398F8D71FF49C32006CBB62 /* Hire */ = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +102,7 @@
 		9398F8D81FF49C41006CBB62 /* People */ = {
 			isa = PBXGroup;
 			children = (
+				93FACD571FF467EB00013B72 /* Hiring.storyboard */,
 				9378B30A1FF4998B001ABB33 /* EmployeeTableViewCell.swift */,
 				9378B30B1FF4998B001ABB33 /* EmployeeTableViewCell.xib */,
 			);
@@ -102,7 +133,7 @@
 				93F868491FF48AAF007C3622 /* Controllers */,
 				93F868481FF48AA2007C3622 /* Views */,
 				93F868471FF48A8F007C3622 /* Models */,
-				93F8684A1FF48AC6007C3622 /* SupportingFiles */,
+				93F8684A1FF48AC6007C3622 /* Supporting Files */,
 			);
 			path = StartupSim;
 			sourceTree = "<group>";
@@ -119,9 +150,11 @@
 		93F868481FF48AA2007C3622 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				93FACD571FF467EB00013B72 /* Main.storyboard */,
+				9357982D1FF532960096C317 /* Onboarding */,
 				9398F8D81FF49C41006CBB62 /* People */,
 				93DC8E781FF44A260024C149 /* Main1.storyboard */,
+				93F052931FF53DE800385736 /* MembershipTextField.swift */,
+				93F052941FF53DE800385736 /* MembershipTextField.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -130,11 +163,12 @@
 			isa = PBXGroup;
 			children = (
 				9398F8D71FF49C32006CBB62 /* Hire */,
+				9357982A1FF52E0F0096C317 /* Onboarding */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		93F8684A1FF48AC6007C3622 /* SupportingFiles */ = {
+		93F8684A1FF48AC6007C3622 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				93DC8E831FF44A260024C149 /* Info.plist */,
@@ -142,7 +176,7 @@
 				93DC8E741FF44A260024C149 /* AppDelegate.swift */,
 				93DC8E801FF44A260024C149 /* LaunchScreen.storyboard */,
 			);
-			path = SupportingFiles;
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		E5B68145590F9EAE89E16140 /* Pods */ = {
@@ -217,10 +251,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				93DC8E821FF44A260024C149 /* LaunchScreen.storyboard in Resources */,
+				935798341FF53A6F0096C317 /* FirstOnboardingCollectionViewCell.xib in Resources */,
 				93DC8E7F1FF44A260024C149 /* Assets.xcassets in Resources */,
 				93DC8E7A1FF44A260024C149 /* Main1.storyboard in Resources */,
+				935798271FF529AC0096C317 /* Main.storyboard in Resources */,
+				93F052961FF53DE800385736 /* MembershipTextField.xib in Resources */,
 				9378B30D1FF4998B001ABB33 /* EmployeeTableViewCell.xib in Resources */,
-				93FACD581FF467EB00013B72 /* Main.storyboard in Resources */,
+				93FACD581FF467EB00013B72 /* Hiring.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,8 +326,11 @@
 				9398F8DA1FF49C70006CBB62 /* ViewEmployeesVC.swift in Sources */,
 				93DC8E751FF44A260024C149 /* AppDelegate.swift in Sources */,
 				939F627C1FF453A800A7C3ED /* EntityManager.swift in Sources */,
+				93F052951FF53DE800385736 /* MembershipTextField.swift in Sources */,
+				935798291FF52E0B0096C317 /* OnboardingViewController.swift in Sources */,
 				93DC8E7D1FF44A260024C149 /* StartupSim.xcdatamodeld in Sources */,
 				9378B30C1FF4998B001ABB33 /* EmployeeTableViewCell.swift in Sources */,
+				935798331FF53A6F0096C317 /* FirstOnboardingCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,7 +470,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CALM89H945;
-				INFOPLIST_FILE = "$(SRCROOT)/StartupSim/SupportingFiles/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/StartupSim/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GDaviesDev.StartupSim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -446,7 +486,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CALM89H945;
-				INFOPLIST_FILE = "$(SRCROOT)/StartupSim/SupportingFiles/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/StartupSim/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GDaviesDev.StartupSim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
