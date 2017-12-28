@@ -7,6 +7,34 @@
 //
 
 import UIKit
+import CoreData
+
+struct EmployeeTableViewCellContent {
+    var name: String?
+    var role: String?
+    var age: Int16?
+    var salary: Int32?
+    
+    var creativityLevel: Int16?
+    var businessLevel: Int16?
+    var technicalLevel: Int16?
+    
+    var expanded: Bool
+    
+    init(employee: Person) {
+        self.name = employee.name
+        self.role = employee.role
+        self.age = employee.age
+        self.salary = employee.salary
+        
+        let skills = employee.skills?.allObjects.first as? Skills
+        self.creativityLevel = skills?.creative
+        self.businessLevel = skills?.business
+        self.technicalLevel = skills?.technical
+        
+        self.expanded = false
+    }
+}
 
 class EmployeeTableViewCell: UITableViewCell {
     
@@ -19,21 +47,33 @@ class EmployeeTableViewCell: UITableViewCell {
     @IBOutlet weak var businessLbl: UILabel!
     @IBOutlet weak var technicalLbl: UILabel!
     
+    @IBOutlet weak var bodyContainerView: UIView!
+    @IBOutlet weak var testLbl: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
+        bodyContainerView.isHidden = true
     }
     
-    func setup(person: Person) {
-        nameLbl.text = person.name
-        roleLbl.text = person.role
-        ageLbl.text = "Age: \(person.age.description)"
-        salaryLbl.text = "Salary: £\(Strings.formatSalary(salary: person.salary))"
+    override func prepareForReuse() {
+        bodyContainerView.isHidden = true
+    }
+    
+    func setup(content: EmployeeTableViewCellContent) {
+        nameLbl.text = content.name
+        roleLbl.text = content.role
+        if let age = content.age {
+            ageLbl.text = "Age: \(age.description)"
+        }
+        salaryLbl.text = "Salary: £\(Strings.formatSalary(salary: content.salary!))"
         
-        let skills = person.skills?.allObjects.first as? Skills
+        creativityLbl.text = content.creativityLevel?.description
+        businessLbl.text = content.businessLevel?.description
+        technicalLbl.text = content.technicalLevel?.description
         
-        creativityLbl.text = skills?.creative.description
-        businessLbl.text = skills?.business.description
-        technicalLbl.text = skills?.technical.description
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
+            self.bodyContainerView.isHidden = !content.expanded
+        }, completion: nil)
     }
 }

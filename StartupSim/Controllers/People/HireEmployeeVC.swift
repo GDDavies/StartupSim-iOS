@@ -72,7 +72,7 @@ class HireEmployeeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EmployeeCellId", for: indexPath) as! EmployeeTableViewCell
-        cell.setup(person: personArray[indexPath.row])
+        cell.setup(content: EmployeeTableViewCellContent(employee: personArray[indexPath.item] as! Person))
         return cell
     }
     

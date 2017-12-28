@@ -16,7 +16,11 @@ class RootViewController: UITabBarController, UITabBarControllerDelegate, Custom
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    let viewControllerTuple: [(storyboard: String, viewController: String)] = [("Home", "MainView"), ("Products", "ViewProducts"), ("Assets", "ViewAssets"),("People", "ViewEmployees"), ("Performance", "ViewPerformance")]
+    let viewControllerTuple: [(storyboard: String, viewController: String)] = [("Home", "MainView"),
+                                                                               ("Products", "ViewProducts"),
+                                                                               ("Assets", "ViewAssets"),
+                                                                               ("People", "ViewEmployees"),
+                                                                               ("Performance", "ViewPerformance")]
     
     override func viewDidLoad() {
         self.delegate = self
