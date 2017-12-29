@@ -38,7 +38,9 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
                 pageCtrl.currentPage = indexPath!.item + 1
             } else {
                 StartupMethods.createStartup(name: cell.nameTxtField.text, context: managedContext!)
-                print("Dismiss self")
+                self.dismiss(animated: true, completion: {
+                    // TODO Reload home VC
+                })
             }
         }
         do {
@@ -77,7 +79,6 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
         } else {
             cell.headerLbl.text = "Please enter your Startup's name."
             cell.nameTxtField.placeholder = "Your startup name"
-            StartupMethods.createStartup(name: cell.nameTxtField.text, context: managedContext!)
         }
         return cell
     }

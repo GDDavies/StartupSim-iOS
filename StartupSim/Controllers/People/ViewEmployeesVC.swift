@@ -29,15 +29,12 @@ class ViewEmployeesVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 return
         }
         
-        let managedContext =
-            appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest =
-            NSFetchRequest<NSManagedObject>(entityName: "Person")
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Person")
         
         do {
             people = try managedContext.fetch(fetchRequest)
-            
+            cellContent.removeAll()
             for person in people {
                 let employee = EmployeeTableViewCellContent(employee: person as! Person)
                 cellContent.append(employee)

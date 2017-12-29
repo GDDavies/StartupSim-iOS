@@ -33,12 +33,82 @@
                         <viewLayoutGuide key="safeArea" id="geb-b6-9G1"/>
                     </view>
                     <navigationItem key="navigationItem" title="Products" id="Bt1-ro-Qxt">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cLT-3Q-qRg"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cLT-3Q-qRg">
+                            <connections>
+                                <segue destination="De4-he-T4Y" kind="presentation" id="lAw-IF-vh8"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hoR-os-5fg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="192.80000000000001" y="151.57421289355324"/>
+        </scene>
+        <!--Create ProductVC-->
+        <scene sceneID="aY0-OZ-Olj">
+            <objects>
+                <viewController storyboardIdentifier="CreateProductVC" id="De4-he-T4Y" customClass="CreateProductVC" customModule="StartupSim" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rZH-7u-xKi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OWK-nq-IYZ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Create Product" id="EMF-sA-PPA">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="jQH-SH-6e1">
+                                            <connections>
+                                                <action selector="cancelBtnPressed:" destination="De4-he-T4Y" id="Qtp-5u-agb"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="H8H-jh-gOv">
+                                <rect key="frame" x="0.0" y="64" width="375" height="548"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="De4-he-T4Y" id="22s-bV-4g2"/>
+                                    <outlet property="delegate" destination="De4-he-T4Y" id="gN3-1F-juo"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zh2-OH-4qC">
+                                <rect key="frame" x="0.0" y="612" width="375" height="55"/>
+                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="qE7-IP-gCv"/>
+                                </constraints>
+                                <state key="normal" title="Save Product">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveBtnPressed:" destination="De4-he-T4Y" eventType="touchUpInside" id="c7I-Rt-2Dj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OWK-nq-IYZ" firstAttribute="trailing" secondItem="wMv-v8-Q78" secondAttribute="trailing" id="8My-lz-f9W"/>
+                            <constraint firstItem="zh2-OH-4qC" firstAttribute="top" secondItem="H8H-jh-gOv" secondAttribute="bottom" id="Mig-FY-SQP"/>
+                            <constraint firstItem="zh2-OH-4qC" firstAttribute="leading" secondItem="wMv-v8-Q78" secondAttribute="leading" id="WNC-aG-FD0"/>
+                            <constraint firstItem="zh2-OH-4qC" firstAttribute="trailing" secondItem="wMv-v8-Q78" secondAttribute="trailing" id="XO0-cO-YY2"/>
+                            <constraint firstItem="OWK-nq-IYZ" firstAttribute="top" secondItem="wMv-v8-Q78" secondAttribute="top" id="anA-mL-VVu"/>
+                            <constraint firstItem="H8H-jh-gOv" firstAttribute="trailing" secondItem="wMv-v8-Q78" secondAttribute="trailing" id="dkp-1f-Qcl"/>
+                            <constraint firstItem="OWK-nq-IYZ" firstAttribute="leading" secondItem="wMv-v8-Q78" secondAttribute="leading" id="suC-n1-2Dn"/>
+                            <constraint firstItem="H8H-jh-gOv" firstAttribute="leading" secondItem="wMv-v8-Q78" secondAttribute="leading" id="vUB-vK-O7P"/>
+                            <constraint firstItem="H8H-jh-gOv" firstAttribute="top" secondItem="OWK-nq-IYZ" secondAttribute="bottom" id="wBT-T3-nBj"/>
+                            <constraint firstItem="zh2-OH-4qC" firstAttribute="bottom" secondItem="wMv-v8-Q78" secondAttribute="bottom" id="yRN-4X-bkl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wMv-v8-Q78"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <connections>
+                        <outlet property="tableView" destination="H8H-jh-gOv" id="A2Z-pm-XAd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9OZ-P3-cIt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="944.79999999999995" y="151.57421289355324"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NUB-Jq-NVA">

@@ -29,8 +29,27 @@ class HomeVC: UIViewController {
         
         startupNameLbl.text = StartupMethods.getStartupName(context: managedContext!)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let managedContext = appDelegate?.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Startup")
+        
+        do {
+            let startupArray = try managedContext?.fetch(fetchRequest)
+            if startupArray?.first == nil {
+                let vc = UIStoryboard(name: "Onboarding", bundle: nil).instantiateViewController(withIdentifier: "OnboardingVC") as! OnboardingViewController
+                self.present(vc, animated: true, completion: nil)
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
 
     @IBAction func continueBtnPressed(_ sender: UIButton) {
+        DateManager.incrementDate()
     }
 
 }

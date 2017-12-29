@@ -13,7 +13,7 @@
         <!--Onboarding View Controller-->
         <scene sceneID="hKG-WH-fUj">
             <objects>
-                <viewController id="pRq-Vi-8DB" customClass="OnboardingViewController" customModule="StartupSim" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnboardingVC" id="pRq-Vi-8DB" customClass="OnboardingViewController" customModule="StartupSim" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="93f-gT-ZdB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
