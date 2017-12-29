@@ -126,6 +126,7 @@
                     <constraint firstAttribute="trailing" secondItem="30l-pA-DLV" secondAttribute="trailing" id="ziL-Ij-efr"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="ageLbl" destination="tAz-83-h5E" id="GSc-vV-6o3"/>

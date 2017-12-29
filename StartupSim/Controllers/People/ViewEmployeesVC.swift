@@ -74,27 +74,26 @@ class ViewEmployeesVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     private func setCellBody(_ indexPath: IndexPath, remove: Bool) {
         let cell = tableView.cellForRow(at: indexPath) as! EmployeeTableViewCell
         if remove {
-            UIView.animate(withDuration: 0.1, animations: {
-                cell.viewWithTag(indexPath.row + 1)?.alpha = 0
-            }, completion: { _ in
-                cell.viewWithTag(indexPath.row + 1)?.removeFromSuperview()
+            UIView.animate(withDuration: 0.3, animations: {
                 self.tableView.beginUpdates()
                 self.tableView.endUpdates()
+                cell.viewWithTag(indexPath.row + 1)?.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y + 100, width: cell.bounds.width, height: 0)
+                (cell.viewWithTag(indexPath.row + 1) as? ExpandedCellBodyView)?.changeBody(hide: true)
+            }, completion: { _ in
+                cell.viewWithTag(indexPath.row + 1)?.removeFromSuperview()
             })
         } else {
-            
-            let bodyView = UINib(nibName: "ExpandedCellBodyView", bundle: nil).instantiate(withOwner: nil, options: nil).first as? UIView
+            let bodyView = UINib(nibName: "ExpandedCellBodyView", bundle: nil).instantiate(withOwner: nil, options: nil).first as? ExpandedCellBodyView
             bodyView?.tag = indexPath.row + 1
-            bodyView?.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y + 100, width: cell.frame.width, height: 100)
-            bodyView?.alpha = 0
-  
+            bodyView?.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y + 100, width: cell.bounds.width, height: 0)
             self.tableView.performBatchUpdates({
                 self.tableView.beginUpdates()
                 self.tableView.endUpdates()
-            }, completion: { _ in
+                
                 cell.addSubview(bodyView!)
-                UIView.animate(withDuration: 0.1, animations: {
-                    bodyView?.alpha = 1.0
+                UIView.animate(withDuration: 0.3, animations: {
+                    bodyView?.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y + 100, width: cell.bounds.width, height: 0)
+                    bodyView?.changeBody(hide: false)
                 })
             })
         }
