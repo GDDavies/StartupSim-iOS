@@ -67,18 +67,36 @@ class ViewEmployeesVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        cellContent[indexPath.item].expanded = !cellContent[indexPath.item].expanded
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        cellContent[indexPath.row].expanded = !cellContent[indexPath.item].expanded
+        setCellBody(indexPath, remove: !cellContent[indexPath.row].expanded)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    private func setCellBody(_ indexPath: IndexPath, remove: Bool) {
+        let cell = tableView.cellForRow(at: indexPath) as! EmployeeTableViewCell
+        if remove {
+            UIView.animate(withDuration: 0.1, animations: {
+                cell.viewWithTag(indexPath.row + 1)?.alpha = 0
+            }, completion: { _ in
+                cell.viewWithTag(indexPath.row + 1)?.removeFromSuperview()
+                self.tableView.beginUpdates()
+                self.tableView.endUpdates()
+            })
+        } else {
+            
+            let bodyView = UINib(nibName: "ExpandedCellBodyView", bundle: nil).instantiate(withOwner: nil, options: nil).first as? UIView
+            bodyView?.tag = indexPath.row + 1
+            bodyView?.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y + 100, width: cell.frame.width, height: 100)
+            bodyView?.alpha = 0
+  
+            self.tableView.performBatchUpdates({
+                self.tableView.beginUpdates()
+                self.tableView.endUpdates()
+            }, completion: { _ in
+                cell.addSubview(bodyView!)
+                UIView.animate(withDuration: 0.1, animations: {
+                    bodyView?.alpha = 1.0
+                })
+            })
+        }
     }
-    */
-
 }

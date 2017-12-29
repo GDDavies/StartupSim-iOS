@@ -47,17 +47,12 @@ class EmployeeTableViewCell: UITableViewCell {
     @IBOutlet weak var businessLbl: UILabel!
     @IBOutlet weak var technicalLbl: UILabel!
     
-    @IBOutlet weak var bodyContainerView: UIView!
-    @IBOutlet weak var testLbl: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
-        bodyContainerView.isHidden = true
     }
     
     override func prepareForReuse() {
-        bodyContainerView.isHidden = true
     }
     
     func setup(content: EmployeeTableViewCellContent) {
@@ -71,9 +66,5 @@ class EmployeeTableViewCell: UITableViewCell {
         creativityLbl.text = content.creativityLevel?.description
         businessLbl.text = content.businessLevel?.description
         technicalLbl.text = content.technicalLevel?.description
-        
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
-            self.bodyContainerView.isHidden = !content.expanded
-        }, completion: nil)
     }
 }
