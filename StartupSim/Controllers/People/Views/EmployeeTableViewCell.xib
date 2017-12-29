@@ -130,8 +130,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="ageLbl" destination="tAz-83-h5E" id="GSc-vV-6o3"/>
-                <outlet property="businessLbl" destination="JUY-w8-w1Q" id="zy1-GR-Iwf"/>
-                <outlet property="creativityLbl" destination="PAb-fJ-f7s" id="upg-xy-UOc"/>
+                <outlet property="businessLbl" destination="PAb-fJ-f7s" id="qZf-bB-HKr"/>
+                <outlet property="creativityLbl" destination="JUY-w8-w1Q" id="Jea-Ro-35u"/>
                 <outlet property="nameLbl" destination="k6r-zg-IMc" id="QyI-hk-Lak"/>
                 <outlet property="roleLbl" destination="jNZ-rV-tB4" id="34C-2X-MTc"/>
                 <outlet property="salaryLbl" destination="sjT-cu-kXr" id="MFm-Oc-612"/>

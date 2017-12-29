@@ -6,5 +6,7 @@ target 'StartupSim' do
   use_frameworks!
 
   pod 'Fakery'
+  pod 'Charts'
+  pod 'KDCircularProgress'
 
 end

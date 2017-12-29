@@ -15,6 +15,8 @@ class ViewEmployeesVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     var people: [NSManagedObject] = []
     var cellContent = [EmployeeTableViewCellContent]()
     
+    var hireType: Role?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,7 +49,45 @@ class ViewEmployeesVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     @IBAction func hireEmployeePressed(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "ShowPotentialHires", sender: self)
+        let actionSheet = UIAlertController(title: "Employee Type", message: nil, preferredStyle: .actionSheet)
+        
+        let designerAction = UIAlertAction(title: "Designer", style: .default) { (action) in
+            self.hireType = .designer
+            self.performSegue(withIdentifier: "ShowPotentialHires", sender: self)
+        }
+        let devAction = UIAlertAction(title: "Software Dev", style: .default) { (action) in
+            self.hireType = .softwareDeveloper
+            self.performSegue(withIdentifier: "ShowPotentialHires", sender: self)
+        }
+        let projMgrAction = UIAlertAction(title: "Project Manager", style: .default) { (action) in
+            self.hireType = .projectManager
+            self.performSegue(withIdentifier: "ShowPotentialHires", sender: self)
+        }
+        let prodMgrAction = UIAlertAction(title: "Product Manager", style: .default) { (action) in
+            self.hireType = .productManager
+            self.performSegue(withIdentifier: "ShowPotentialHires", sender: self)
+        }
+        let marketingExecAction = UIAlertAction(title: "Marketing Exec", style: .default) { (action) in
+            self.hireType = .marketingExecutive
+            self.performSegue(withIdentifier: "ShowPotentialHires", sender: self)
+        }
+        let accountMgrAction = UIAlertAction(title: "Account Manager", style: .default) { (action) in
+            self.hireType = .accountManager
+            self.performSegue(withIdentifier: "ShowPotentialHires", sender: self)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            actionSheet.dismiss(animated: true, completion: nil)
+        }
+        
+        actionSheet.addAction(designerAction)
+        actionSheet.addAction(devAction)
+        actionSheet.addAction(prodMgrAction)
+        actionSheet.addAction(projMgrAction)
+        actionSheet.addAction(marketingExecAction)
+        actionSheet.addAction(accountMgrAction)
+        actionSheet.addAction(cancelAction)
+
+        self.present(actionSheet, animated: true, completion: nil)
     }
     
     // MARK: - TableView Methods
@@ -96,6 +136,16 @@ class ViewEmployeesVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                     bodyView?.changeBody(hide: false)
                 })
             })
+        }
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowPotentialHires" {
+            if let toViewController = segue.destination as? HireEmployeeVC {
+                toViewController.employeeType = hireType
+            }
         }
     }
 }

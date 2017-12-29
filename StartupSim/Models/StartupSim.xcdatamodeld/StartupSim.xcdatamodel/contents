@@ -40,8 +40,11 @@
     </entity>
     <entity name="Skills" representedClassName="Skills" syncable="YES" codeGenerationType="class">
         <attribute name="business" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="businessProgress" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="creative" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="creativeProgress" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="technical" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="technicalProgress" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="skills" inverseEntity="Person" syncable="YES"/>
     </entity>
     <entity name="Startup" representedClassName="Startup" syncable="YES" codeGenerationType="class">
@@ -49,12 +52,12 @@
         <relationship name="people" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="startup" inverseEntity="Person" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Person" positionX="-27" positionY="18" width="128" height="180"/>
-        <element name="Skills" positionX="-27" positionY="9" width="128" height="105"/>
-        <element name="Startup" positionX="-18" positionY="81" width="128" height="75"/>
-        <element name="Product" positionX="-9" positionY="99" width="128" height="150"/>
         <element name="Asset" positionX="0" positionY="108" width="128" height="105"/>
-        <element name="Performance" positionX="18" positionY="144" width="128" height="135"/>
         <element name="Game" positionX="36" positionY="162" width="128" height="75"/>
+        <element name="Performance" positionX="18" positionY="144" width="128" height="135"/>
+        <element name="Person" positionX="-27" positionY="18" width="128" height="180"/>
+        <element name="Product" positionX="-9" positionY="99" width="128" height="150"/>
+        <element name="Skills" positionX="-27" positionY="9" width="128" height="150"/>
+        <element name="Startup" positionX="-18" positionY="81" width="128" height="75"/>
     </elements>
 </model>

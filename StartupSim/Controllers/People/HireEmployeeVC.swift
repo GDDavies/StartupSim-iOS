@@ -15,10 +15,10 @@ class HireEmployeeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     var personArray = [Person]()
     var managedContext: NSManagedObjectContext?
+    var employeeType: Role?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //save(name: "Bastian")
         
         tableView.register(UINib(nibName: "EmployeeTableViewCell", bundle: nil), forCellReuseIdentifier: "EmployeeCellId")
         
@@ -31,33 +31,18 @@ class HireEmployeeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     private func createShortlist() {
         
         for _ in 0...2 {
-            let person = PeopleMethods.createEmployee(role: .designer, context: managedContext!)
+            let person = PeopleMethods.createEmployee(minSalary: 80000, maxSalary: 100000, role: employeeType!, context: managedContext!)
             personArray.append(person)
         }
     }
     
     func savePerson(person: Person) {
-        
-//        let entity = NSEntityDescription.entity(forEntityName: "CEO",
-//                                                in: managedContext)!
-//
-//        let person = NSManagedObject(entity: entity,
-//                                     insertInto: managedContext)
-        
-        //person.setValue(name, forKeyPath: "name")
-        
-        
-        //managedContext.createCEO(context: managedContext)
-        
-        
         do {
             try managedContext?.save()
             
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
-        
-        //print(ceo.value(forKey: "name"))
     }
     
     @IBAction func donePressed(_ sender: UIBarButtonItem) {
@@ -72,7 +57,7 @@ class HireEmployeeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EmployeeCellId", for: indexPath) as! EmployeeTableViewCell
-        cell.setup(content: EmployeeTableViewCellContent(employee: personArray[indexPath.item] as! Person))
+        cell.setup(content: EmployeeTableViewCellContent(employee: personArray[indexPath.item]))
         return cell
     }
     
