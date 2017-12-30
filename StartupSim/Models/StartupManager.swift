@@ -14,12 +14,7 @@ struct StartupMethods {
     static func createStartup(name: String, context: NSManagedObjectContext) {
         let startup = Startup(context: context)
         startup.name = name
-        do {
-            try context.save()
-            DateManager.startDate = Date()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
+        DatabaseManager.saveContext(context: context)
     }
     
     static func getStartupName(context: NSManagedObjectContext) -> String? {

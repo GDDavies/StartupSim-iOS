@@ -52,6 +52,8 @@
 		93F052D41FF5D32200385736 /* CreateProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F052D31FF5D32200385736 /* CreateProductVC.swift */; };
 		93F052D71FF5D44200385736 /* CreateProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F052D51FF5D44200385736 /* CreateProductTableViewCell.swift */; };
 		93F052D81FF5D44200385736 /* CreateProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F052D61FF5D44200385736 /* CreateProductTableViewCell.xib */; };
+		93F3C6A51FF81F7000C217BF /* UpgradeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3C6A41FF81F7000C217BF /* UpgradeManager.swift */; };
+		93F3C6A71FF81FF200C217BF /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3C6A61FF81FF200C217BF /* DatabaseManager.swift */; };
 		93FACD581FF467EB00013B72 /* People.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93FACD571FF467EB00013B72 /* People.storyboard */; };
 		F53C0368AB573A1B6BB7AA50 /* Pods_StartupSim.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9D40BB774175638F0E33BD /* Pods_StartupSim.framework */; };
 /* End PBXBuildFile section */
@@ -105,6 +107,8 @@
 		93F052D31FF5D32200385736 /* CreateProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductVC.swift; sourceTree = "<group>"; };
 		93F052D51FF5D44200385736 /* CreateProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductTableViewCell.swift; sourceTree = "<group>"; };
 		93F052D61FF5D44200385736 /* CreateProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateProductTableViewCell.xib; sourceTree = "<group>"; };
+		93F3C6A41FF81F7000C217BF /* UpgradeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeManager.swift; sourceTree = "<group>"; };
+		93F3C6A61FF81FF200C217BF /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		93FACD571FF467EB00013B72 /* People.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = People.storyboard; sourceTree = "<group>"; };
 		A904EE98E9CFEBEDED240E90 /* Pods-StartupSim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StartupSim.release.xcconfig"; path = "Pods/Target Support Files/Pods-StartupSim/Pods-StartupSim.release.xcconfig"; sourceTree = "<group>"; };
 		DC9D40BB774175638F0E33BD /* Pods_StartupSim.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StartupSim.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,8 +185,8 @@
 		93F052971FF55AFE00385736 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				93F0529C1FF55FE700385736 /* Views */,
 				93F052981FF55B2200385736 /* RootVC.swift */,
+				93F0529C1FF55FE700385736 /* Views */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -327,7 +331,9 @@
 				93F052CD1FF5BC6200385736 /* AssetManager.swift */,
 				93F052CF1FF5BC7900385736 /* ProductManager.swift */,
 				939F627B1FF453A800A7C3ED /* PeopleManager.swift */,
+				93F3C6A41FF81F7000C217BF /* UpgradeManager.swift */,
 				93F052CB1FF5BC5700385736 /* PerformanceManager.swift */,
+				93F3C6A61FF81FF200C217BF /* DatabaseManager.swift */,
 				93DC8E7B1FF44A260024C149 /* StartupSim.xcdatamodeld */,
 			);
 			path = Models;
@@ -474,12 +480,14 @@
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/Fakery/Fakery.framework",
 				"${BUILT_PRODUCTS_DIR}/KDCircularProgress/KDCircularProgress.framework",
+				"${BUILT_PRODUCTS_DIR}/LinearProgressBar/LinearProgressBar.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fakery.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KDCircularProgress.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LinearProgressBar.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -550,8 +558,10 @@
 				93F052BF1FF5870400385736 /* PerformanceVC.swift in Sources */,
 				935798291FF52E0B0096C317 /* OnboardingViewController.swift in Sources */,
 				93DC8E7D1FF44A260024C149 /* StartupSim.xcdatamodeld in Sources */,
+				93F3C6A51FF81F7000C217BF /* UpgradeManager.swift in Sources */,
 				93F052AB1FF566DB00385736 /* StyleConfig.swift in Sources */,
 				93F052B31FF578E100385736 /* Extensions.swift in Sources */,
+				93F3C6A71FF81FF200C217BF /* DatabaseManager.swift in Sources */,
 				93F052CE1FF5BC6200385736 /* AssetManager.swift in Sources */,
 				9378B30C1FF4998B001ABB33 /* EmployeeTableViewCell.swift in Sources */,
 				935798331FF53A6F0096C317 /* FirstOnboardingCollectionViewCell.swift in Sources */,

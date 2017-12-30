@@ -17,6 +17,7 @@ struct Strings {
     static func formatSalary(salary: Int32) -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        // TODO Add localised curreny prefix
         return numberFormatter.string(from: NSNumber(value: salary))!
     }
 }

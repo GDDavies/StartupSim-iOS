@@ -8,16 +8,26 @@
 
 import UIKit
 import CoreData
+import KDCircularProgress
+import LinearProgressBar
 
 class HomeVC: UIViewController {
 
     @IBOutlet weak var startupNameLbl: UILabel!
+    @IBOutlet weak var establishedLbl: UILabel!
+    
     @IBOutlet weak var ceoAvatarImgView: UIImageView!
+    @IBOutlet weak var ceoNameLbl: UILabel!
+    @IBOutlet weak var ceoLevelLbl: UILabel!
+    @IBOutlet weak var ceoLevelProgressBar: LinearProgressBar!
     
     @IBOutlet weak var shareholderConfLbl: UILabel!
     @IBOutlet weak var employeeMoraleLbl: UILabel!
     @IBOutlet weak var brandRecognitionLbl: UILabel!
     @IBOutlet weak var publicPerceptionLbl: UILabel!
+    
+    @IBOutlet weak var shareholderConfidenceView: KDCircularProgress!
+    @IBOutlet weak var shareholderConfidenceLbl: UILabel!
     
     var managedContext: NSManagedObjectContext?
     
@@ -26,16 +36,20 @@ class HomeVC: UIViewController {
         
         self.navigationController?.navigationBar.tintColor = Colours.ThemePrimary
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        managedContext = appDelegate.persistentContainer.viewContext
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        managedContext = appDelegate?.persistentContainer.viewContext
+        
         self.view.backgroundColor = Colours.LightGrey
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        managedContext = appDelegate?.persistentContainer.viewContext
+        let ceoArray = DatabaseManager.doFetchRequest(entity: "Person", context: managedContext!)
+        if let ceo = ceoArray?.first as? Person, let name = ceo.name {
+            ceoNameLbl.text = name
+        }
+        
         startupNameLbl.text = StartupMethods.getStartupName(context: managedContext!)
 
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Startup")

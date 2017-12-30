@@ -29,7 +29,7 @@ class HireEmployeeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     private func createShortlist() {
-        let expLevels = ["Junior", "Mid Level", "Senior"]
+        let expLevels = ["junior", "midLevel", "senior"]
         for i in 0...2 {
             for _ in 0...2 {
                 let person = PeopleMethods.createEmployee(role: employeeType!, experience: expLevels[i], context: managedContext!)
@@ -37,16 +37,7 @@ class HireEmployeeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
     }
-    
-    func savePerson(person: Person) {
-        do {
-            try managedContext?.save()
-            
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
-    }
-    
+        
     @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
         for i in 0..<personArray.count {
             managedContext?.delete(personArray[i])
@@ -62,7 +53,7 @@ class HireEmployeeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EmployeeCellId", for: indexPath) as! EmployeeTableViewCell
-        cell.setup(content: EmployeeTableViewCellContent(employee: personArray[indexPath.item]))
+        cell.setup(person: personArray[indexPath.item])
         return cell
     }
     
@@ -74,7 +65,7 @@ class HireEmployeeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         for i in 0..<personArray.count where i != indexPath.row {
             managedContext?.delete(personArray[i])
         }
-        savePerson(person: personArray[indexPath.row])
+        DatabaseManager.saveContext(context: managedContext!)
         self.dismiss(animated: true, completion: nil)
     }
 

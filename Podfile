@@ -8,5 +8,6 @@ target 'StartupSim' do
   pod 'Fakery'
   pod 'Charts'
   pod 'KDCircularProgress'
+  pod 'LinearProgressBar'
 
 end

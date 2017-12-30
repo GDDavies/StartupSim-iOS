@@ -13,9 +13,9 @@ class ViewEmployeesVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 
     @IBOutlet weak var tableView: UITableView!
     var people: [NSManagedObject] = []
-    var cellContent = [EmployeeTableViewCellContent]()
+    var cellContent = [Person]()
     let collapsedHeight: CGFloat = 70
-    let expandedHeight: CGFloat = 170
+    let expandedHeight: CGFloat = 190
     
     var hireType: Role?
     
@@ -40,8 +40,7 @@ class ViewEmployeesVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             people = try managedContext.fetch(fetchRequest)
             cellContent.removeAll()
             for person in people {
-                let employee = EmployeeTableViewCellContent(employee: person as! Person)
-                cellContent.append(employee)
+                cellContent.append(person as! Person)
             }
             
             tableView.reloadData()
@@ -100,7 +99,7 @@ class ViewEmployeesVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EmployeeCellId", for: indexPath) as! EmployeeTableViewCell
-        cell.setup(content: cellContent[indexPath.item])
+        cell.setup(person: cellContent[indexPath.item])
         cell.salaryLbl.isHidden = true
         return cell
     }
@@ -117,10 +116,12 @@ class ViewEmployeesVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     private func setCellBody(_ indexPath: IndexPath, remove: Bool) {
         let cell = tableView.cellForRow(at: indexPath) as! EmployeeTableViewCell
         if remove {
+            
             self.tableView.performBatchUpdates({
                 self.tableView.beginUpdates()
                 self.tableView.endUpdates()
                 (cell.viewWithTag(indexPath.row + 1) as? ExpandedCellBodyView)?.changeBody(hide: true)
+            }, completion: { bool in
                 UIView.animate(withDuration: 0.3, animations: {
                     cell.viewWithTag(indexPath.row + 1)?.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y + self.collapsedHeight, width: cell.bounds.width, height: 0)
                 }, completion: { _ in
@@ -131,6 +132,7 @@ class ViewEmployeesVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             let bodyView = UINib(nibName: "ExpandedCellBodyView", bundle: nil).instantiate(withOwner: nil, options: nil).first as? ExpandedCellBodyView
             bodyView?.tag = indexPath.row + 1
             bodyView?.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y + collapsedHeight, width: cell.bounds.width, height: 0)
+            bodyView?.setup(person: cellContent[indexPath.row])
             self.tableView.performBatchUpdates({
                 self.tableView.beginUpdates()
                 self.tableView.endUpdates()

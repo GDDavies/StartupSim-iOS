@@ -32,6 +32,7 @@ struct PeopleMethods {
         employee.role = role.rawValue
         employee.negotiation = Int16(generate.number.randomInt(min: 0, max: 20))
         employee.experience = experience
+        employee.happiness = 70.0
         
         createSkills(person: employee, context: context, completion: { tuple in
             employee.level = Int16(tuple.totalLevel)
@@ -122,13 +123,19 @@ struct PeopleMethods {
         }
         let random = Faker()
         return Int16(random.number.randomInt(min: min, max: max))
-    }
+    }    
+}
+
+enum Skill: String {
+    case business = "business"
+    case creative = "creative"
+    case technical = "technical"
 }
 
 enum SkillLevel: String {
-    case senior = "Senior"
-    case mid = "Mid Level"
-    case junior = "Junior"
+    case senior = "senior"
+    case mid = "midLevel"
+    case junior = "junior"
 }
 
 enum Role: String {

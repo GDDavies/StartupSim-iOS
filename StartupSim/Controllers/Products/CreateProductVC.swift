@@ -16,6 +16,7 @@ class CreateProductVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.backgroundColor = Colours.LightGrey
         tableView.register(UINib(nibName: "CreateProductTableViewCell", bundle: nil), forCellReuseIdentifier: "CreateProductCellId")
     }
 

@@ -57,12 +57,7 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
             collectionView.scrollToItem(at: IndexPath(item: indexPath!.item - 1, section: 0), at: UICollectionViewScrollPosition.left, animated: true)
             pageCtrl.currentPage = indexPath!.item - 1
         }
-        do {
-            try managedContext?.save()
-            
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
+        DatabaseManager.saveContext(context: managedContext!)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

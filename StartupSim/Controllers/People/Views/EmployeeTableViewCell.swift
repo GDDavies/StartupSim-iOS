@@ -10,31 +10,6 @@ import UIKit
 import CoreData
 import KDCircularProgress
 
-struct EmployeeTableViewCellContent {
-    var name: String?
-    var role: String?
-    var salary: Int32?
-    
-    var creativityLevel: Int16?
-    var businessLevel: Int16?
-    var technicalLevel: Int16?
-    
-    var expanded: Bool
-    
-    init(employee: Person) {
-        self.name = employee.name
-        self.role = employee.role
-        self.salary = employee.salary
-        
-        let skills = employee.skills?.allObjects.first as? Skills
-        self.creativityLevel = skills?.creative
-        self.businessLevel = skills?.business
-        self.technicalLevel = skills?.technical
-        
-        self.expanded = false
-    }
-}
-
 class EmployeeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLbl: UILabel!
@@ -60,25 +35,34 @@ class EmployeeTableViewCell: UITableViewCell {
     override func prepareForReuse() {
     }
     
-    func setup(content: EmployeeTableViewCellContent) {
-        nameLbl.text = content.name
-        roleLbl.text = content.role
-        salaryLbl.text = "£\(Strings.formatSalary(salary: content.salary!))"
+    func setup(person: Person) {
+        nameLbl.text = person.name
+        roleLbl.text = person.role
+        salaryLbl.text = "£\(Strings.formatSalary(salary: person.salary))"
         
-        creativityLbl.text = content.creativityLevel?.description
-        businessLbl.text = content.businessLevel?.description
-        technicalLbl.text = content.technicalLevel?.description
-        [businessLevel, creativityLevel, technicalLevel].enumerated().forEach{ setupProgressCircle(index: $0, progressView: $1) }
+        let skills = person.skills?.allObjects.first as? Skills
+        
+        creativityLbl.text = skills?.creative.description
+        businessLbl.text = skills?.business.description
+        technicalLbl.text = skills?.technical.description
+        
+        let new = zip([businessLevel, creativityLevel, technicalLevel], [skills?.creative, skills?.business, skills?.technical])
+        
+        _ = new.enumerated().map {
+            setupProgressCircle(index: $0.offset, progressView: $0.element.0!, level: $0.element.1!)
+        }
     }
     
-    private func setupProgressCircle(index: Int, progressView: KDCircularProgress) {
-        progressView.startAngle = -90
+    private func setupProgressCircle(index: Int, progressView: KDCircularProgress, level: Int16) {
+        
+        let ratio = Double(level) / 20
+        //progressView.angle = 0
+        progressView.startAngle = 270
         progressView.progressThickness = 0.4
         progressView.trackColor = .lightGray
         progressView.clockwise = true
         progressView.roundedCorners = false
         progressView.set(colors: colours[index])
-        
-        progressView.animate(toAngle: 170, duration: 1.0, completion: nil)
+        progressView.animate(toAngle: ratio * 360, duration: 0.5, completion: nil)
     }
 }

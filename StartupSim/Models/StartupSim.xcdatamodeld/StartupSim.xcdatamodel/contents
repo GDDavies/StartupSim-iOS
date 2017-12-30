@@ -21,6 +21,7 @@
     <entity name="Person" representedClassName="Person" syncable="YES" codeGenerationType="class">
         <attribute name="equity" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="experience" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="happiness" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="level" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="negotiation" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -55,7 +56,7 @@
         <element name="Asset" positionX="0" positionY="108" width="128" height="105"/>
         <element name="Game" positionX="36" positionY="162" width="128" height="75"/>
         <element name="Performance" positionX="18" positionY="144" width="128" height="135"/>
-        <element name="Person" positionX="-27" positionY="18" width="128" height="180"/>
+        <element name="Person" positionX="-27" positionY="18" width="128" height="195"/>
         <element name="Product" positionX="-9" positionY="99" width="128" height="150"/>
         <element name="Skills" positionX="-27" positionY="9" width="128" height="150"/>
         <element name="Startup" positionX="-18" positionY="81" width="128" height="75"/>
