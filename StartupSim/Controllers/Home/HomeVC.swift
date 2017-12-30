@@ -24,17 +24,20 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.tintColor = Colours.ThemePrimary
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         managedContext = appDelegate.persistentContainer.viewContext
-        
-        startupNameLbl.text = StartupMethods.getStartupName(context: managedContext!)
+        self.view.backgroundColor = Colours.LightGrey
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        let managedContext = appDelegate?.persistentContainer.viewContext
+        managedContext = appDelegate?.persistentContainer.viewContext
+        startupNameLbl.text = StartupMethods.getStartupName(context: managedContext!)
+
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Startup")
         
         do {

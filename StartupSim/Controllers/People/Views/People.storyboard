@@ -75,16 +75,16 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Hire" id="3wY-ai-bVg">
-                                        <barButtonItem key="leftBarButtonItem" title="Done" id="hG3-vQ-cdr">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="hG3-vQ-cdr">
                                             <connections>
-                                                <action selector="donePressed:" destination="Cq1-JK-AGC" id="UA6-Ug-PPS"/>
+                                                <action selector="cancelPressed:" destination="Cq1-JK-AGC" id="UA6-Ug-PPS"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.1521916687" green="0.68357628579999996" blue="0.37689387800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Mw8-5o-fJf" firstAttribute="leading" secondItem="UXN-au-6fd" secondAttribute="leading" id="B9y-iz-GDI"/>
                             <constraint firstItem="VJK-dk-Fy4" firstAttribute="leading" secondItem="UXN-au-6fd" secondAttribute="leading" id="FWI-e4-0Ii"/>

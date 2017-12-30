@@ -14,12 +14,14 @@ class ViewEmployeesVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var tableView: UITableView!
     var people: [NSManagedObject] = []
     var cellContent = [EmployeeTableViewCellContent]()
+    let collapsedHeight: CGFloat = 70
+    let expandedHeight: CGFloat = 170
     
     var hireType: Role?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.backgroundColor = Colours.LightGrey
         tableView.register(UINib(nibName: "EmployeeTableViewCell", bundle: nil), forCellReuseIdentifier: "EmployeeCellId")
     }
     
@@ -99,11 +101,12 @@ class ViewEmployeesVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EmployeeCellId", for: indexPath) as! EmployeeTableViewCell
         cell.setup(content: cellContent[indexPath.item])
+        cell.salaryLbl.isHidden = true
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return cellContent[indexPath.item].expanded ? 200 : 100
+        return cellContent[indexPath.item].expanded ? expandedHeight : collapsedHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -114,25 +117,27 @@ class ViewEmployeesVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     private func setCellBody(_ indexPath: IndexPath, remove: Bool) {
         let cell = tableView.cellForRow(at: indexPath) as! EmployeeTableViewCell
         if remove {
-            UIView.animate(withDuration: 0.3, animations: {
+            self.tableView.performBatchUpdates({
                 self.tableView.beginUpdates()
                 self.tableView.endUpdates()
-                cell.viewWithTag(indexPath.row + 1)?.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y + 100, width: cell.bounds.width, height: 0)
                 (cell.viewWithTag(indexPath.row + 1) as? ExpandedCellBodyView)?.changeBody(hide: true)
-            }, completion: { _ in
-                cell.viewWithTag(indexPath.row + 1)?.removeFromSuperview()
+                UIView.animate(withDuration: 0.3, animations: {
+                    cell.viewWithTag(indexPath.row + 1)?.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y + self.collapsedHeight, width: cell.bounds.width, height: 0)
+                }, completion: { _ in
+                    cell.viewWithTag(indexPath.row + 1)?.removeFromSuperview()
+                })
             })
         } else {
             let bodyView = UINib(nibName: "ExpandedCellBodyView", bundle: nil).instantiate(withOwner: nil, options: nil).first as? ExpandedCellBodyView
             bodyView?.tag = indexPath.row + 1
-            bodyView?.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y + 100, width: cell.bounds.width, height: 0)
+            bodyView?.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y + collapsedHeight, width: cell.bounds.width, height: 0)
             self.tableView.performBatchUpdates({
                 self.tableView.beginUpdates()
                 self.tableView.endUpdates()
                 
                 cell.addSubview(bodyView!)
                 UIView.animate(withDuration: 0.3, animations: {
-                    bodyView?.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y + 100, width: cell.bounds.width, height: 0)
+                    bodyView?.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y + self.collapsedHeight, width: cell.bounds.width, height: 0)
                     bodyView?.changeBody(hide: false)
                 })
             })

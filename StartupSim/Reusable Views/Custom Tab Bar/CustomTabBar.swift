@@ -71,7 +71,7 @@ class CustomTabBar: UIView {
             let view = UIView(frame: container)
             
             let selectedItemOverlay = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
-            selectedItemOverlay.backgroundColor = Colours.TabBarHighlight
+            selectedItemOverlay.backgroundColor = .white
             view.addSubview(selectedItemOverlay)
             self.addSubview(view)
         }
@@ -83,9 +83,9 @@ class CustomTabBar: UIView {
         let rightOverlaySlidingMultiplier = CGFloat(initialTabBarItemIndex + 1) * tabBarItemWidth
         
         leftMask = UIView(frame: CGRect(x: 0, y: 0, width: leftOverlaySlidingMultiplier, height: self.frame.height))
-        leftMask?.backgroundColor = Colours.Two
+        leftMask?.backgroundColor = .white
         rightMask = UIView(frame: CGRect(x: rightOverlaySlidingMultiplier, y: 0, width: tabBarItemWidth * CGFloat(tabItems!.count - 1), height: self.frame.height))
-        rightMask?.backgroundColor = Colours.Two
+        rightMask?.backgroundColor = .white
         
         self.addSubview(leftMask!)
         self.addSubview(rightMask!)
@@ -107,8 +107,8 @@ class CustomTabBar: UIView {
             customTabBarItem.addSubview(button)
             tabBarButtons.append(button)
         }
-        self.customTabBarItems[initialTabBarItemIndex].iconView.tintColor = Colours.Two
-        self.customTabBarItems[initialTabBarItemIndex].itemNameLbl.textColor = Colours.Two
+        self.customTabBarItems[initialTabBarItemIndex].iconView.tintColor = Colours.ThemePrimary
+        self.customTabBarItems[initialTabBarItemIndex].itemNameLbl.textColor = Colours.ThemePrimary
     }
     
     private func createTabBarItemContainers() -> [CGRect] {
@@ -145,18 +145,18 @@ class CustomTabBar: UIView {
         }, completion: nil)
         
         UIView.transition(with: self.customTabBarItems[from].itemNameLbl, duration: slideAnimationDuration, options: .transitionCrossDissolve, animations: {
-            self.customTabBarItems[from].itemNameLbl.textColor = .white
+            self.customTabBarItems[from].itemNameLbl.textColor = .gray
         }, completion: nil)
         
         UIView.transition(with: self.customTabBarItems[to].itemNameLbl, duration: slideAnimationDuration, options: .transitionCrossDissolve, animations: {
-            self.customTabBarItems[to].itemNameLbl.textColor = Colours.Two
+            self.customTabBarItems[to].itemNameLbl.textColor = Colours.ThemePrimary
         }, completion: nil)
         
         UIView.animate(withDuration: slideAnimationDuration, delay: 0, options: [.curveEaseInOut], animations: {
             self.rightMask?.frame.origin.x += overlaySlidingMultiplier
             self.rightMask?.frame.size.width += -overlaySlidingMultiplier
-            self.customTabBarItems[from].iconView.tintColor = .white
-            self.customTabBarItems[to].iconView.tintColor = Colours.Two
+            self.customTabBarItems[from].iconView.tintColor = .gray
+            self.customTabBarItems[to].iconView.tintColor = Colours.ThemePrimary
         }, completion: nil)
     }
 

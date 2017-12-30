@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		93210C0D1FF66F87005BEAF2 /* ExpandedCellBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93210C0C1FF66F87005BEAF2 /* ExpandedCellBodyView.swift */; };
 		93210C0F1FF66F97005BEAF2 /* ExpandedCellBodyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93210C0E1FF66F97005BEAF2 /* ExpandedCellBodyView.xib */; };
+		93210C121FF6EA05005BEAF2 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93210C101FF6EA04005BEAF2 /* Montserrat-Regular.ttf */; };
+		93210C131FF6EA05005BEAF2 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93210C111FF6EA04005BEAF2 /* Montserrat-Bold.ttf */; };
+		93210C181FF70FBA005BEAF2 /* AssetsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93210C161FF70FBA005BEAF2 /* AssetsCollectionViewCell.swift */; };
+		93210C191FF70FBA005BEAF2 /* AssetsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93210C171FF70FBA005BEAF2 /* AssetsCollectionViewCell.xib */; };
+		93210C1B1FF7189E005BEAF2 /* Hardcoded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93210C1A1FF7189E005BEAF2 /* Hardcoded.swift */; };
 		935798271FF529AC0096C317 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 935798261FF529AC0096C317 /* Onboarding.storyboard */; };
 		935798291FF52E0B0096C317 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935798281FF52E0B0096C317 /* OnboardingViewController.swift */; };
 		935798331FF53A6F0096C317 /* FirstOnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935798311FF53A6F0096C317 /* FirstOnboardingCollectionViewCell.swift */; };
@@ -55,6 +60,11 @@
 		39ADD2D641691468DBAD1037 /* Pods-StartupSim.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StartupSim.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StartupSim/Pods-StartupSim.debug.xcconfig"; sourceTree = "<group>"; };
 		93210C0C1FF66F87005BEAF2 /* ExpandedCellBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedCellBodyView.swift; sourceTree = "<group>"; };
 		93210C0E1FF66F97005BEAF2 /* ExpandedCellBodyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpandedCellBodyView.xib; sourceTree = "<group>"; };
+		93210C101FF6EA04005BEAF2 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		93210C111FF6EA04005BEAF2 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		93210C161FF70FBA005BEAF2 /* AssetsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsCollectionViewCell.swift; sourceTree = "<group>"; };
+		93210C171FF70FBA005BEAF2 /* AssetsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetsCollectionViewCell.xib; sourceTree = "<group>"; };
+		93210C1A1FF7189E005BEAF2 /* Hardcoded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hardcoded.swift; sourceTree = "<group>"; };
 		935798261FF529AC0096C317 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		935798281FF52E0B0096C317 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		935798311FF53A6F0096C317 /* FirstOnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -219,6 +229,8 @@
 		93F052A51FF5642200385736 /* Style */ = {
 			isa = PBXGroup;
 			children = (
+				93210C111FF6EA04005BEAF2 /* Montserrat-Bold.ttf */,
+				93210C101FF6EA04005BEAF2 /* Montserrat-Regular.ttf */,
 				93F052A61FF5643200385736 /* Colours.swift */,
 				93F052A81FF5668200385736 /* Fonts.swift */,
 				93F052AA1FF566DB00385736 /* StyleConfig.swift */,
@@ -265,6 +277,8 @@
 			isa = PBXGroup;
 			children = (
 				93F052B91FF5868400385736 /* Assets.storyboard */,
+				93210C161FF70FBA005BEAF2 /* AssetsCollectionViewCell.swift */,
+				93210C171FF70FBA005BEAF2 /* AssetsCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -347,6 +361,7 @@
 			children = (
 				93F052A51FF5642200385736 /* Style */,
 				93F052B21FF578E100385736 /* Extensions.swift */,
+				93210C1A1FF7189E005BEAF2 /* Hardcoded.swift */,
 				93DC8E831FF44A260024C149 /* Info.plist */,
 				93DC8E7E1FF44A260024C149 /* Assets.xcassets */,
 				93DC8E741FF44A260024C149 /* AppDelegate.swift */,
@@ -429,6 +444,7 @@
 				93DC8E821FF44A260024C149 /* LaunchScreen.storyboard in Resources */,
 				935798341FF53A6F0096C317 /* FirstOnboardingCollectionViewCell.xib in Resources */,
 				93F052C51FF58F9500385736 /* Products.storyboard in Resources */,
+				93210C121FF6EA05005BEAF2 /* Montserrat-Regular.ttf in Resources */,
 				93DC8E7F1FF44A260024C149 /* Assets.xcassets in Resources */,
 				93F052B11FF56E6100385736 /* Home.storyboard in Resources */,
 				93210C0F1FF66F97005BEAF2 /* ExpandedCellBodyView.xib in Resources */,
@@ -437,9 +453,11 @@
 				93F052961FF53DE800385736 /* MembershipTextField.xib in Resources */,
 				93F052D81FF5D44200385736 /* CreateProductTableViewCell.xib in Resources */,
 				93F052BA1FF5868400385736 /* Assets.storyboard in Resources */,
+				93210C131FF6EA05005BEAF2 /* Montserrat-Bold.ttf in Resources */,
 				9378B30D1FF4998B001ABB33 /* EmployeeTableViewCell.xib in Resources */,
 				93FACD581FF467EB00013B72 /* People.storyboard in Resources */,
 				93F052BD1FF586EA00385736 /* Performance.storyboard in Resources */,
+				93210C191FF70FBA005BEAF2 /* AssetsCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,9 +541,11 @@
 				939F627C1FF453A800A7C3ED /* PeopleManager.swift in Sources */,
 				93F052951FF53DE800385736 /* MembershipTextField.swift in Sources */,
 				93F052AE1FF56E4D00385736 /* HomeVC.swift in Sources */,
+				93210C181FF70FBA005BEAF2 /* AssetsCollectionViewCell.swift in Sources */,
 				93F052D71FF5D44200385736 /* CreateProductTableViewCell.swift in Sources */,
 				93F052CC1FF5BC5700385736 /* PerformanceManager.swift in Sources */,
 				93F052A41FF562B500385736 /* CustomTabBarItem.swift in Sources */,
+				93210C1B1FF7189E005BEAF2 /* Hardcoded.swift in Sources */,
 				93F052B71FF5866F00385736 /* AssetsVC.swift in Sources */,
 				93F052BF1FF5870400385736 /* PerformanceVC.swift in Sources */,
 				935798291FF52E0B0096C317 /* OnboardingViewController.swift in Sources */,

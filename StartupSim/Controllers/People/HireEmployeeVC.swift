@@ -20,8 +20,8 @@ class HireEmployeeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.backgroundColor = Colours.LightGrey
         tableView.register(UINib(nibName: "EmployeeTableViewCell", bundle: nil), forCellReuseIdentifier: "EmployeeCellId")
-        
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         print(appDelegate?.persistentContainer.persistentStoreCoordinator.persistentStores.first?.url)
         managedContext = appDelegate?.persistentContainer.viewContext
@@ -29,10 +29,12 @@ class HireEmployeeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     private func createShortlist() {
-        
-        for _ in 0...2 {
-            let person = PeopleMethods.createEmployee(minSalary: 80000, maxSalary: 100000, role: employeeType!, context: managedContext!)
-            personArray.append(person)
+        let expLevels = ["Junior", "Mid Level", "Senior"]
+        for i in 0...2 {
+            for _ in 0...2 {
+                let person = PeopleMethods.createEmployee(role: employeeType!, experience: expLevels[i], context: managedContext!)
+                personArray.append(person)
+            }
         }
     }
     
@@ -45,7 +47,10 @@ class HireEmployeeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    @IBAction func donePressed(_ sender: UIBarButtonItem) {
+    @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
+        for i in 0..<personArray.count {
+            managedContext?.delete(personArray[i])
+        }
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -62,7 +67,7 @@ class HireEmployeeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 70
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -13,7 +13,7 @@ class ProductsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = Colours.LightGrey
     }
     
     @objc private func test() {

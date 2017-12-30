@@ -56,15 +56,13 @@ class CustomTabBarItem: UIView {
                 iconView.addSubview(numberOfLiveGames)
             }
         }
-        
         if let selected = isSelected, selected == true {
-            iconView.tintColor = Colours.Two
-            itemNameLbl.textColor = Colours.Two
+            iconView.tintColor = Colours.ThemePrimary
+            itemNameLbl.textColor = Colours.ThemePrimary
         } else {
-            iconView.tintColor = .white
-            itemNameLbl.textColor = .white
+            iconView.tintColor = .gray
+            itemNameLbl.textColor = .gray
         }
-        
         itemNameLbl.text = itemName
         itemNameLbl.textAlignment = .center
         itemNameLbl.translatesAutoresizingMaskIntoConstraints = false

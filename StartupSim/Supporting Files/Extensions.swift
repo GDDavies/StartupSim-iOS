@@ -6,10 +6,17 @@
 //  Copyright © 2017 George Davies. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension Int32 {
     func round(_ value: Int32, toNearest: Int32) -> Int32 {
         return Int32(Darwin.round(Double(value) / Double(toNearest)) * Double(toNearest))
     }
 }
+
+//extension UINavigationController {
+//    override open var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .lightContent
+//    }
+//}
+

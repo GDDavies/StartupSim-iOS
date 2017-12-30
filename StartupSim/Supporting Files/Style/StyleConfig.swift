@@ -19,5 +19,8 @@ protocol FontsConfig {
 protocol ColourConfig {
     static var One: UIColor { get } // Primary brand color
     static var Two: UIColor { get } // Secondary brand color
+    static var Three: UIColor { get }
+    static var ThemePrimary: UIColor { get }
+    static var ThemeSecondary: UIColor { get }
     static var TabBarHighlight: UIColor { get }
 }

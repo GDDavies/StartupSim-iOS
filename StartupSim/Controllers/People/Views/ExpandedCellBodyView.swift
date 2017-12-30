@@ -28,7 +28,7 @@ class ExpandedCellBodyView: UIView {
     }
 
     func changeBody(hide: Bool) {
-        UIView.animate(withDuration: 0.1, delay: hide ? 0.0 : 0.1, options: [.curveEaseIn], animations: {
+        UIView.animate(withDuration: 0.1, delay: hide ? 0 : 0.2, options: [.curveLinear], animations: {
             self.testLbl1.alpha = hide ? 0 : 1
             self.testLbl2.alpha = hide ? 0 : 1
             self.testView.alpha = hide ? 0 : 1

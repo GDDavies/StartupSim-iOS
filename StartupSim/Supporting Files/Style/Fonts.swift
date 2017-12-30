@@ -9,8 +9,8 @@
 import UIKit
 
 struct Fonts: FontsConfig {
-    static func NormalFnt(_ size: CGFloat) -> UIFont { return UIFont(name: "HelveticaNeue", size: size)! }
-    static func BoldFnt(_ size: CGFloat) -> UIFont { return UIFont(name: "HelveticaNeue-Bold", size: size)! }
+    static func NormalFnt(_ size: CGFloat) -> UIFont { return UIFont(name: "Montserrat-Regular", size: size)! }
+    static func BoldFnt(_ size: CGFloat) -> UIFont { return UIFont(name: "Montserrat-Bold", size: size)! }
 }
 
 struct Strings {
