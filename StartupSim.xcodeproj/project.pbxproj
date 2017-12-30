@@ -54,6 +54,9 @@
 		93F052D81FF5D44200385736 /* CreateProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F052D61FF5D44200385736 /* CreateProductTableViewCell.xib */; };
 		93F3C6A51FF81F7000C217BF /* UpgradeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3C6A41FF81F7000C217BF /* UpgradeManager.swift */; };
 		93F3C6A71FF81FF200C217BF /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3C6A61FF81FF200C217BF /* DatabaseManager.swift */; };
+		93F3C6AF1FF840BC00C217BF /* PerformaceSummaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3C6AD1FF840BC00C217BF /* PerformaceSummaryCollectionViewCell.swift */; };
+		93F3C6B01FF840BC00C217BF /* PerformaceSummaryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F3C6AE1FF840BC00C217BF /* PerformaceSummaryCollectionViewCell.xib */; };
+		93F3C6B21FF8570500C217BF /* CustomSegmentedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3C6B11FF8570500C217BF /* CustomSegmentedController.swift */; };
 		93FACD581FF467EB00013B72 /* People.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93FACD571FF467EB00013B72 /* People.storyboard */; };
 		F53C0368AB573A1B6BB7AA50 /* Pods_StartupSim.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9D40BB774175638F0E33BD /* Pods_StartupSim.framework */; };
 /* End PBXBuildFile section */
@@ -109,6 +112,9 @@
 		93F052D61FF5D44200385736 /* CreateProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateProductTableViewCell.xib; sourceTree = "<group>"; };
 		93F3C6A41FF81F7000C217BF /* UpgradeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeManager.swift; sourceTree = "<group>"; };
 		93F3C6A61FF81FF200C217BF /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		93F3C6AD1FF840BC00C217BF /* PerformaceSummaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformaceSummaryCollectionViewCell.swift; sourceTree = "<group>"; };
+		93F3C6AE1FF840BC00C217BF /* PerformaceSummaryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PerformaceSummaryCollectionViewCell.xib; sourceTree = "<group>"; };
+		93F3C6B11FF8570500C217BF /* CustomSegmentedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedController.swift; sourceTree = "<group>"; };
 		93FACD571FF467EB00013B72 /* People.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = People.storyboard; sourceTree = "<group>"; };
 		A904EE98E9CFEBEDED240E90 /* Pods-StartupSim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StartupSim.release.xcconfig"; path = "Pods/Target Support Files/Pods-StartupSim/Pods-StartupSim.release.xcconfig"; sourceTree = "<group>"; };
 		DC9D40BB774175638F0E33BD /* Pods_StartupSim.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StartupSim.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -291,6 +297,8 @@
 			isa = PBXGroup;
 			children = (
 				93F052BC1FF586EA00385736 /* Performance.storyboard */,
+				93F3C6AD1FF840BC00C217BF /* PerformaceSummaryCollectionViewCell.swift */,
+				93F3C6AE1FF840BC00C217BF /* PerformaceSummaryCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -324,6 +332,14 @@
 			path = "Membership Text Field";
 			sourceTree = "<group>";
 		};
+		93F3C6A81FF83FD800C217BF /* Swipe Bar Controller */ = {
+			isa = PBXGroup;
+			children = (
+				93F3C6B11FF8570500C217BF /* CustomSegmentedController.swift */,
+			);
+			path = "Swipe Bar Controller";
+			sourceTree = "<group>";
+		};
 		93F868471FF48A8F007C3622 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +358,7 @@
 		93F868481FF48AA2007C3622 /* Reusable Views */ = {
 			isa = PBXGroup;
 			children = (
+				93F3C6A81FF83FD800C217BF /* Swipe Bar Controller */,
 				93F052A01FF562A300385736 /* Custom Tab Bar */,
 				93F052C81FF5BBF600385736 /* Membership Text Field */,
 			);
@@ -456,6 +473,7 @@
 				93210C0F1FF66F97005BEAF2 /* ExpandedCellBodyView.xib in Resources */,
 				93F0529E1FF55FF700385736 /* Main.storyboard in Resources */,
 				935798271FF529AC0096C317 /* Onboarding.storyboard in Resources */,
+				93F3C6B01FF840BC00C217BF /* PerformaceSummaryCollectionViewCell.xib in Resources */,
 				93F052961FF53DE800385736 /* MembershipTextField.xib in Resources */,
 				93F052D81FF5D44200385736 /* CreateProductTableViewCell.xib in Resources */,
 				93F052BA1FF5868400385736 /* Assets.storyboard in Resources */,
@@ -539,7 +557,9 @@
 				93F052A91FF5668200385736 /* Fonts.swift in Sources */,
 				93DC8E771FF44A260024C149 /* HireEmployeeVC.swift in Sources */,
 				93F052991FF55B2200385736 /* RootVC.swift in Sources */,
+				93F3C6B21FF8570500C217BF /* CustomSegmentedController.swift in Sources */,
 				93F052D41FF5D32200385736 /* CreateProductVC.swift in Sources */,
+				93F3C6AF1FF840BC00C217BF /* PerformaceSummaryCollectionViewCell.swift in Sources */,
 				9398F8DA1FF49C70006CBB62 /* ViewEmployeesVC.swift in Sources */,
 				93F052D21FF5BC9800385736 /* StartupManager.swift in Sources */,
 				93F052A71FF5643200385736 /* Colours.swift in Sources */,

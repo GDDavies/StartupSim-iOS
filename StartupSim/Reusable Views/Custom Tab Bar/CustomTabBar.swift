@@ -1,11 +1,3 @@
-//
-//  CustomTabBar.swift
-//  Premiership
-//
-//  Created by George Davies on 19/10/2017.
-//  Copyright © 2017 Incrowd Sports. All rights reserved.
-//
-
 import UIKit
 
 class CustomTabBar: UIView {
