@@ -59,6 +59,10 @@ class ExpandedCellBodyView: UIView {
         salaryLbl.layer.masksToBounds = true
         salaryLbl.layer.cornerRadius = 5
 
+        [fireBtn, rewardBtn, upgradeBtn, disciplineBtn].forEach{
+            $0?.addShadow()
+        }
+        
         [statsContainerView,
          businessLbl, businessProgressView,
          creativityLbl, creativityProgressView,

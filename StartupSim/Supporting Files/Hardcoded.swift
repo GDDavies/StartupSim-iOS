@@ -15,4 +15,7 @@ struct Hardcoded {
         AssetCellContents.init(title: "Pay Debt", iconString: "Home"),
         AssetCellContents.init(title: "Sell Assets", iconString: "Home")
     ]
+    
+    static let performanceSwipeItems = ["Match Info","Match Commentary", "Other", "More"]
+
 }
