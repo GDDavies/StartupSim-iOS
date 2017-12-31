@@ -55,6 +55,10 @@ class PerformanceVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         return 0
     }
     
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        delegate.buttonTapped = false
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         for cell in collectionView.visibleCells {
             let indexPath = collectionView.indexPath(for: cell)
@@ -64,7 +68,6 @@ class PerformanceVC: UIViewController, UICollectionViewDelegate, UICollectionVie
             let indexes = collectionView.indexPathsForVisibleItems
 
             if indexPath!.item != 0 || indexPath!.item % 2 != 0 {
-                
                 if (self.lastContentOffset > scrollView.contentOffset.x) {
                     let max = indexes.max()
                     selectedIndex = max!.item - 1

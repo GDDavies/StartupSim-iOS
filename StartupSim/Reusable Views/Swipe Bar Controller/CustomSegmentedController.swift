@@ -10,6 +10,7 @@ import UIKit
 
 protocol CollectionViewDelegate {
     func scrollingToViewContoller(index: Int, frame: CGRect, direction: ScrollDirection)
+    var buttonTapped: Bool { get set }
 }
 
 class CustomSegmentedControl: UIControl, CollectionViewDelegate {
@@ -17,6 +18,7 @@ class CustomSegmentedControl: UIControl, CollectionViewDelegate {
     var buttons = [UIButton]()
     var selector: UIView!
     var selectedButtonIndex = 0
+    var buttonTapped = false
     
     var delegate: CollectionViewDelegate!
 
@@ -79,24 +81,25 @@ class CustomSegmentedControl: UIControl, CollectionViewDelegate {
     }
     
     @objc func buttonTapped(button: UIButton) {
+        buttonTapped = true
         moveSelector(button)
     }
     
     private func moveSelector(_ button: UIButton? = nil) {
         
         var buttonOne: UIButton?
-        
         if button == nil {
-            buttonOne = buttons[selectedButtonIndex]
-            buttons.forEach{ $0.setTitleColor(newTextColour, for: .normal) }
-            
-            let selectorStartPosition = (frame.width / CGFloat(buttons.count)) * CGFloat(selectedButtonIndex)
-            UIView.animate(withDuration: 0.3, animations: {
-                self.selector.frame.origin.x = selectorStartPosition
-            })
-            buttonOne?.setTitleColor(selectorTextColour, for: .normal)
+            if !buttonTapped {
+                buttonOne = buttons[selectedButtonIndex]
+                buttons.forEach{ $0.setTitleColor(newTextColour, for: .normal) }
+                
+                let selectorStartPosition = (frame.width / CGFloat(buttons.count)) * CGFloat(selectedButtonIndex)
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.selector.frame.origin.x = selectorStartPosition
+                })
+                buttonOne?.setTitleColor(selectorTextColour, for: .normal)
+            }
         } else {
-        
             for (buttonIndex, btn) in buttons.enumerated() {
                 btn.setTitleColor(newTextColour, for: .normal)
                 
@@ -112,16 +115,10 @@ class CustomSegmentedControl: UIControl, CollectionViewDelegate {
             sendActions(for: .valueChanged)
         }
     }
-    
-    var saveX = true
-        
+
     func scrollingToViewContoller(index: Int, frame: CGRect, direction: ScrollDirection) {
-//        print("Selected index = \(index)")
-//        print("Screen width = \(self.frame.width)")
         
         var width: CGFloat?
-        var x: CGFloat?
-
         if direction == .right {
             
             switch index {
@@ -149,9 +146,7 @@ class CustomSegmentedControl: UIControl, CollectionViewDelegate {
             default:
                 width = self.frame.width / 2
             }
-            print("Index = \(index)")
-            print("X = \(frame.origin.x)")
-            print("Width = \(width!)")
+
             if !(-10...10).contains(Int(frame.origin.x)) {
                 if frame.origin.x > width! {
                     if self.selectedButtonIndex != index {
@@ -163,10 +158,3 @@ class CustomSegmentedControl: UIControl, CollectionViewDelegate {
         }
     }
 }
-
-
-
-
-
-
-
