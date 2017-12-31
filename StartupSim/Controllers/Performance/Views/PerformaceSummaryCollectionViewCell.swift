@@ -15,4 +15,7 @@ class PerformaceSummaryCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
 
+    override func prepareForReuse() {
+        self.backgroundColor = .darkGray
+    }
 }

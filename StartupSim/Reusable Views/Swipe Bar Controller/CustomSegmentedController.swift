@@ -8,19 +8,23 @@
 
 import UIKit
 
-class CustomSegmentedControl: UIControl {
-    
+protocol CollectionViewDelegate {
+    func scrollingToViewContoller(index: Int, frame: CGRect, direction: ScrollDirection)
+}
+
+class CustomSegmentedControl: UIControl, CollectionViewDelegate {
+
     var buttons = [UIButton]()
     var selector: UIView!
     var selectedButtonIndex = 0
     
+    var delegate: CollectionViewDelegate!
+
     var borderWidth: CGFloat = 0 {
         didSet {
             layer.borderWidth = borderWidth
         }
     }
-    
-    let buttonTitles = ["Match Info","Match Commentary"]
     
     var newTextColour = UIColor.white
     var textColour: UIColor = UIColor.white
@@ -32,13 +36,18 @@ class CustomSegmentedControl: UIControl {
         updateView()
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        (self.parentViewController as? PerformanceVC)?.delegate = self
+    }
+    
     public func updateView() {
         buttons.removeAll()
         subviews.forEach { $0.removeFromSuperview() }
         
         self.backgroundColor = Colours.ThemePrimary
         
-        for buttonTitle in buttonTitles {
+        for buttonTitle in Hardcoded.performanceSwipeItems {
             let button = UIButton(type: .system)
             button.setTitle(buttonTitle, for: .normal)
             button.setTitleColor(newTextColour, for: .normal)
@@ -70,18 +79,94 @@ class CustomSegmentedControl: UIControl {
     }
     
     @objc func buttonTapped(button: UIButton) {
-        for (buttonIndex, btn) in buttons.enumerated() {
-            btn.setTitleColor(newTextColour, for: .normal)
+        moveSelector(button)
+    }
+    
+    private func moveSelector(_ button: UIButton? = nil) {
+        
+        var buttonOne: UIButton?
+        
+        if button == nil {
+            buttonOne = buttons[selectedButtonIndex]
+            buttons.forEach{ $0.setTitleColor(newTextColour, for: .normal) }
             
-            if btn == button {
-                selectedButtonIndex = buttonIndex
-                let selectorStartPosition = (frame.width / CGFloat(buttons.count)) * CGFloat(buttonIndex)
-                UIView.animate(withDuration: 0.3, animations: {
-                    self.selector.frame.origin.x = selectorStartPosition
-                })
-                btn.setTitleColor(selectorTextColour, for: .normal)
+            let selectorStartPosition = (frame.width / CGFloat(buttons.count)) * CGFloat(selectedButtonIndex)
+            UIView.animate(withDuration: 0.3, animations: {
+                self.selector.frame.origin.x = selectorStartPosition
+            })
+            buttonOne?.setTitleColor(selectorTextColour, for: .normal)
+        } else {
+        
+            for (buttonIndex, btn) in buttons.enumerated() {
+                btn.setTitleColor(newTextColour, for: .normal)
+                
+                if btn == button {
+                    selectedButtonIndex = buttonIndex
+                    let selectorStartPosition = (frame.width / CGFloat(buttons.count)) * CGFloat(buttonIndex)
+                    UIView.animate(withDuration: 0.3, animations: {
+                        self.selector.frame.origin.x = selectorStartPosition
+                    })
+                    btn.setTitleColor(selectorTextColour, for: .normal)
+                }
+            }
+            sendActions(for: .valueChanged)
+        }
+    }
+    
+    var saveX = true
+        
+    func scrollingToViewContoller(index: Int, frame: CGRect, direction: ScrollDirection) {
+//        print("Selected index = \(index)")
+//        print("Screen width = \(self.frame.width)")
+        
+        var width: CGFloat?
+        var x: CGFloat?
+
+        if direction == .right {
+            
+            switch index {
+            case 1:
+                width = self.frame.width / 2
+            case 2:
+                width = -self.frame.width / 2
+            default:
+                width = self.frame.width / 2
+            }
+            
+            if frame.origin.x < width! {
+                if selectedButtonIndex != index {
+                    selectedButtonIndex = index
+                    moveSelector()
+                }
+            }
+        } else if direction == .left {
+            
+            switch index {
+            case 1:
+                width = -self.frame.width / 2
+            case 2:
+                width = self.frame.width / 2
+            default:
+                width = self.frame.width / 2
+            }
+            print("Index = \(index)")
+            print("X = \(frame.origin.x)")
+            print("Width = \(width!)")
+            if !(-10...10).contains(Int(frame.origin.x)) {
+                if frame.origin.x > width! {
+                    if self.selectedButtonIndex != index {
+                        self.selectedButtonIndex = index
+                        self.moveSelector()
+                    }
+                }
             }
         }
-        sendActions(for: .valueChanged)
     }
 }
+
+
+
+
+
+
+
